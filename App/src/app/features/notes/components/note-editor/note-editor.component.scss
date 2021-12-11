@@ -1,0 +1,25 @@
+.wrapper {
+  margin: 15px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  margin: 10px;
+}
+.full-width-input {
+  width: 100%;
+}
+.footer {
+    margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,15 @@
+
+.mat-card-image{
+  height: 150px;
+}
+.card-content{
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline
+}
+.card-name{
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

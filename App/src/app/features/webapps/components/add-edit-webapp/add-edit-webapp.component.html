@@ -1,0 +1,130 @@
+<form [formGroup]="webappForm" (ngSubmit)="onSubmit()">
+    <mat-card class="wrapper">
+        <mat-card-title>
+            {{title}}
+        </mat-card-title>
+        <mat-card-content>
+            <div class="row">
+                <mat-error *ngIf="!formValid">
+                    Please correct all validation errors
+                </mat-error>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <mat-form-field class="full-width-input">
+                        <input type="text" autocomplete="new-password" matInput placeholder="Name"
+                            formControlName="name" required>
+                        <mat-error>
+                            Please provide a valid name
+                        </mat-error>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-input">
+                        <input matInput type="text" autocomplete="new-password" placeholder="Description"
+                            formControlName="description">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-input">
+                        <input matInput type="text" autocomplete="new-password" placeholder="Hosted Location Url"
+                            formControlName="hostedLocationUrl">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-input">
+                        <input matInput type="text" autocomplete="new-password" placeholder="Packaged Zip File Url"
+                            formControlName="packagedZipFileUrl">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-input">
+                        <input matInput type="text" autocomplete="new-password" placeholder="Demo Url"
+                            formControlName="demoUrl">
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-input">
+                        <input matInput type="text" autocomplete="new-password" placeholder="Github Url"
+                            formControlName="githubUrl">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill" class="full-width-input">
+                        <mat-label>Select an option</mat-label>
+                        <mat-select formControlName="type">
+                            <mat-option>None</mat-option>
+                            <mat-option value="template">Template</mat-option>
+                            <mat-option value="own build">Own Builds</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
+                    <mat-form-field class="full-width-input">
+                        <input matInput type="text" autocomplete="new-password" placeholder="Author Name"
+                            formControlName="authorName">
+                    </mat-form-field>
+
+
+                    <div style="margin-bottom:10px;display: flex;justify-content: space-evenly;">
+                        <mat-checkbox formControlName="isActive">Active</mat-checkbox>
+                        <mat-checkbox formControlName="isLocal">Local</mat-checkbox>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="attachments" formArrayName="attachments">
+
+                        <div class="header">
+                            <h2>Attachments</h2>
+                            <button mat-mini-fab color="primary" (click)="addAttachment()" type="button">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                        </div>
+                        <app-fileupload (onUploadFinished)="uploadFinished($event)"></app-fileupload>
+
+                        <div *ngFor="let attachment of attachments.controls; let i=index" [formGroupName]="i">
+                            <div class="attachment-wrapper">
+                                <mat-form-field class="form-control">
+                                    <input matInput type="text" autocomplete="new-password" placeholder="Name"
+                                        formControlName="name">
+                                </mat-form-field>
+                                <mat-form-field class="form-control">
+                                    <input matInput type="text" autocomplete="new-password" placeholder="Type"
+                                        formControlName="type">
+                                </mat-form-field>
+                                <mat-checkbox class="form-control" formControlName="isPrimary">Primary</mat-checkbox>
+
+                                <button class="form-control" mat-mini-fab color="primary" type="button"
+                                    (click)="removeAttachment(i)">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tags" formArrayName="tags">
+                        <div style="display: flex;justify-content: space-between;">
+                            <h2>Tags</h2>
+                            <button mat-mini-fab color="primary" (click)="addTag()" type="button">
+                                <mat-icon>add</mat-icon>
+                            </button>
+                        </div>
+
+                        <div *ngFor="let tag of tags.controls; let i=index" [formGroupName]="i">
+                            <div class="tag-wrapper">
+                                <mat-form-field>
+                                    <input matInput type="text" autocomplete="new-password" placeholder="Name"
+                                        formControlName="name">
+                                </mat-form-field>
+                                <button mat-mini-fab color="primary" (click)="removeTag(i)" type="button">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <div style="display: flex;justify-content: space-between;">
+                <button mat-button color="accent" type="reset">Reset</button>
+                <button mat-raised-button color="primary">Save</button>
+            </div>
+
+        </mat-card-actions>
+    </mat-card>
+</form>

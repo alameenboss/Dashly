@@ -1,0 +1,31 @@
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 10px;
+}
+
+.mat-card-image {
+  height: 150px;
+}
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.card-name {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.forked{
+  background:rgb(194, 193, 193);
+}

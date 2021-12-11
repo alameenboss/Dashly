@@ -1,0 +1,93 @@
+<div style="
+display: flex;
+flex-wrap: nowrap;
+flex-direction: row;
+justify-content: space-between;
+align-items: baseline;
+">
+  <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button style="margin-right: 10px;" color="accent" (click)="deleteAllWebapp()">Delete All</button>
+    <button mat-raised-button  color="primary" (click)="addwebapp()">Add</button>
+  </div>
+</div>
+<div class="mat-elevation-z8">
+  <div class="example-container">
+    <table mat-table class="full-width-table" 
+    matSort matSortActive="name"  matSortDirection="asc" matSortDisableClear
+    aria-label="Rows" multiTemplateDataRows>
+      <!-- Id Column -->
+      <ng-container matColumnDef="id" sticky>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+        <td mat-cell *matCellDef="let row" (click)="expandRow(row)">{{row.id}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Preview </th>
+        <td mat-cell *matCellDef="let row">
+          <a href="{{row.hostedLocationUrl}}" target="_blank">
+            {{row.name}}
+          </a>
+        </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="tags">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Tags</th>
+        <td mat-cell *matCellDef="let row">
+          <mat-chip-list>
+            <mat-chip *ngFor="let tag of row.tags">{{tag.name}}</mat-chip>
+          </mat-chip-list>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let row">
+          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item (click)="editwebapp(row.id)">Edit</button>
+            <button mat-menu-item (click)="removewebapp(row.id)">Remove</button>
+            <button mat-menu-item (click)="expandRow(row)">{{row == expandedRow? 'Collapse' : 'Expand'}}</button>
+          </mat-menu>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let row" [attr.colspan]="3">
+          <div class="example-row-detail" [@detailExpand]="row == expandedRow ? 'expanded' : 'collapsed'">
+            <div class="example-row-diagram">
+              <div class="example-row-id"> {{row.id}} </div>
+              <div class="example-row-symbol"> {{row.name.charAt(0)}} </div>
+              <div class="example-row-name"> {{row.name}} </div>
+              <div class="example-row-weight"> {{row.authorName}} </div>
+            </div>
+            <div class="example-row-description">
+              <img height="150px" mat-card-image [src]="createImgPath(row)" alt="{{row.name}}"
+                onerror="this.onerror=null; this.src='assets/image/default.png'">
+              {{row.description}}
+              <span class="example-row-description-attribution"> -- Wikipedia </span>
+              <p>
+                <button mat-raised-button color="primary" (click)="expandedRow = null">Close</button>
+              </p>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="example-row-row"
+        [class.example-expanded-row]="expandedRow === row">
+      </tr>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="example-detail-row"></tr>
+    </table>
+  </div>
+  <mat-paginator #paginator [length]="dataSource?.data?.length" [pageIndex]="0" [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 20]" aria-label="Select page">
+  </mat-paginator>
+</div>

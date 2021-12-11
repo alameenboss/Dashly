@@ -1,0 +1,19 @@
+<mat-card class="wrapper">
+
+    <h1 align="center">{{note.title}}</h1>
+    <hr/>
+
+    <mat-card-content>
+        <div class="row">
+            <div class="column">
+                <div [innerHTML]="note.notes"></div>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="footer">
+            <button mat-button color="accent">Delete</button>
+            <button mat-raised-button color="primary" type="button" (click)="onEditClick()">Edit</button>
+        </div>
+    </mat-card-actions>
+</mat-card>

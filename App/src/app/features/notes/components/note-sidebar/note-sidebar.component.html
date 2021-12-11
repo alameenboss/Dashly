@@ -1,0 +1,27 @@
+
+<mat-card>
+    <mat-card-content>
+        <ng-container *ngTemplateOutlet="replyThread; context: { $implicit: notecategories }">
+
+        </ng-container>
+    </mat-card-content>
+</mat-card>
+
+<ng-template #replyThread let-category>
+    <ul>
+        <li *ngFor="let cat of category">
+            <span (click)="onCategorySelected(cat)">
+                📕 {{ cat.name }}
+            </span>
+            <ul *ngIf="cat.notes">
+                <li *ngFor="let note of cat.notes" (click)="onItemSelected(note)">
+                    <span>📃 {{ note.title }}</span>
+                </li>
+            </ul>
+            <ng-container *ngIf="cat.categories">
+                <ng-container *ngTemplateOutlet="replyThread;context: { $implicit: cat.categories }">
+                </ng-container>
+            </ng-container>
+        </li>
+    </ul>
+</ng-template>

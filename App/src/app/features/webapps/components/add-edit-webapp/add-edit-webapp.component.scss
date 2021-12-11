@@ -1,0 +1,40 @@
+.wrapper {
+  margin: 15px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  margin: 10px;
+}
+.attachments {
+  margin: 10px;
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .attachment-wrapper {
+    display: flex;
+    align-items: baseline;
+    .form-control {
+      margin-left: 10px;
+    }
+  }
+}
+.tags {
+  margin: 10px;
+}
+
+@media screen and (min-width: 800px) {
+  .column {
+    flex: 1;
+  }
+}

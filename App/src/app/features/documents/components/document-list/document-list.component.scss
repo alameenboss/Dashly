@@ -1,0 +1,59 @@
+.example-container {
+  width: 100%;
+  overflow: auto;
+}
+.full-width-table {
+  width: 100%;
+}
+
+th.mat-column-name,
+td.mat-column-name {
+  padding-left: 8px;
+}
+td.mat-column-action {
+  width: 20px;
+  padding-right: 8px;
+}
+td.mat-column-id {
+  width: 20px;
+  padding-right: 8px;
+}
+.mat-table-sticky-border-elem-right {
+  border-left: 1px solid #e0e0e0;
+}
+
+.mat-table-sticky-border-elem-left {
+  border-right: 1px solid #e0e0e0;
+}
+
+.example-row-row td {
+  border-bottom-width: 0;
+}
+
+.example-row-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-row-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-row-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-row-description {
+  padding: 16px;
+}
+
+.example-row-description-attribution {
+  opacity: 0.5;
+}

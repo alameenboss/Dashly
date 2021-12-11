@@ -1,0 +1,30 @@
+<ng-container>
+  <mat-toolbar color="primary">
+    <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+    <span (click)="gotoHome()"> Dashly </span>
+
+
+  </mat-toolbar>
+
+  <mat-sidenav-container class="container">
+    <mat-sidenav #sidenav mode="side" opened class="sidenav" [fixedInViewport]="false">
+
+      <mat-nav-list>
+        <app-menu-list-item *ngFor="let item of menuList" [item]="item"></app-menu-list-item>
+       
+        <a mat-list-item (click)="logout()">Logout</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <div class="content-container">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+  <mat-toolbar class="footer">Footer</mat-toolbar>
+</ng-container>
