@@ -4,6 +4,7 @@ using Dashly.API.Repositories.Interface;
 using Dashly.API.Services;
 using Dashly.API.ConnectedServices.GitHub;
 using Dashly.API.Feature.Documents.Data;
+using Dashly.API.Feature.OAuthIntegrations.Data;
 
 namespace Dashly.API.Helpers
 {
@@ -19,6 +20,8 @@ namespace Dashly.API.Helpers
             services.AddScoped<INoteRepository, NoteRepository>();
             services.AddScoped<INoteCategoryRepository, NoteCategoryRepository>();
             services.AddScoped<IDocumentRepository, DocumentRepository>();
+
+            services.AddScoped<IOAuthRepository, OAuthRepository>();
         }
     }
 }

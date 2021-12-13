@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FeedbackMainComponent } from './features/feedbacks/components/feedback-main/feedback-main.component';
 import { ImpoterComponent } from './features/import-data/impoter/impoter.component';
+import { SignInComponent } from './integration/components/signin/signin.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MainNavComponent } from './shared/components/layout/main-nav/main-nav.component';
@@ -50,6 +51,14 @@ const routes: Routes = [
   {
     path: 'authentication',
     loadChildren: () => import('src/app/features/authentication/authentication.module').then(m => m.AuthenticationModule)
+  },
+  {
+    path: 'integration',
+    component: MainNavComponent,
+    loadChildren: () => import('src/app/integration/integration.module').then(m => m.IntegrationModule)
+  },
+  {
+    path: 'oauth/signin', component: SignInComponent
   },
   { path: '**', redirectTo: '' }
 ];

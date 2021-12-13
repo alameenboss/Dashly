@@ -48,6 +48,10 @@ export class NavService {
         { displayName: 'New', iconName: 'group', route: '/documents' },
         { displayName: 'List', iconName: 'group', route: '/documents/list' }
       ]},
+      { displayName: 'Integration', iconName: 'group', children: [
+        { displayName: 'Add', iconName: 'group', route: '/integration/add' },
+        { displayName: 'List', iconName: 'group', route: '/integration/list' }
+      ]}, 
       { displayName: 'Contacts', iconName: 'group', route: '/contacts' },
       { displayName: 'Family Hierarchy', iconName: 'group', route: '/family' },
       { displayName: 'Passwords', iconName: 'group', route: '/password' },

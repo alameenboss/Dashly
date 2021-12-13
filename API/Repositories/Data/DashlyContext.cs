@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Dashly.API.Models.Github;
 using Dashly.API.Repositories.Data.Entity.Notes;
 using Dashly.API.Feature.Documents.Models;
+using Dashly.API.Feature.OAuthIntegrations.Models;
 
 namespace Dashly.API.Repositories.Data
 {
@@ -31,6 +32,9 @@ namespace Dashly.API.Repositories.Data
         public DbSet<NoteCategory> NoteCategories { get; set; }
 
         public DbSet<Document> Documents { get; set; }
+
+
+        public DbSet<OAuthIntegration> OAuthIntegrations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
