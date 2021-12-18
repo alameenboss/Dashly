@@ -11,7 +11,6 @@ import { Location } from '@angular/common'
   styleUrls: ['./add-edit-webapp.component.scss']
 })
 export class AddEditWebappComponent implements OnInit {
-  title: string = 'Add Webapp';
   webappForm: FormGroup;
   public formValid: boolean = true;
   private webappId: number = 0;
@@ -47,7 +46,6 @@ export class AddEditWebappComponent implements OnInit {
     });
 
     if (this.webappId > 0) {
-      this.title = "Edit Webapp";
       this.getById(this.webappId);
     }
   }

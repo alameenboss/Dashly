@@ -4,10 +4,34 @@ import { AddEditIntegrationComponent } from './components/add-edit-integration/a
 import { ListIntegrationComponent } from './components/list-integration/list-integration.component';
 
 const routes: Routes = [
-  { path: '', component: ListIntegrationComponent },
-  { path: 'list', component: ListIntegrationComponent },
-  { path: 'add', component: AddEditIntegrationComponent},
-  { path: 'edit/:id', component: AddEditIntegrationComponent}
+  {
+    path: '',
+    component: ListIntegrationComponent,
+    data: {
+      breadcrumb: 'List'
+    }
+  },
+  {
+    path: 'list',
+    component: ListIntegrationComponent,
+    data: {
+      breadcrumb: 'List'
+    }
+  },
+  {
+    path: 'add',
+    component: AddEditIntegrationComponent,
+    data: {
+      breadcrumb: 'Add'
+    }
+  },
+  {
+    path: 'edit/:id',
+    component: AddEditIntegrationComponent,
+    data: {
+      breadcrumb: 'Edit'
+    }
+  }
 ];
 
 @NgModule({

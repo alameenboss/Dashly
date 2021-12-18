@@ -4,9 +4,24 @@ import { CardViewComponent } from './components/card-view/card-view.component';
 import { TableViewComponent } from './components/table-view/table-view.component';
 
 const routes: Routes = [
-  { path: '', component: TableViewComponent },
-  { path: 'cardview', component: CardViewComponent },
-  { path: 'listview', component: TableViewComponent },
+  {
+    path: '', component: TableViewComponent,
+    data: {
+      breadcrumb: 'List'
+    }
+  },
+  {
+    path: 'cardview', component: CardViewComponent,
+    data: {
+      breadcrumb: 'Card'
+    }
+  },
+  {
+    path: 'listview', component: TableViewComponent,
+    data: {
+      breadcrumb: 'List'
+    }
+  },
 ];
 
 @NgModule({

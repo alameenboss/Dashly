@@ -5,11 +5,32 @@ import { CardViewComponent } from './components/card-view/card-view.component';
 import { ListViewComponent } from './components/list-view/list-view.component';
 
 const routes: Routes = [
-  { path: '', component: ListViewComponent },
-  { path: 'cardview', component: CardViewComponent },
-  { path: 'listview', component: ListViewComponent },
-  { path: 'add', component: AddEditWebappComponent},
-  { path: 'edit/:id', component: AddEditWebappComponent}
+  {
+    path: '', component: ListViewComponent,
+    data: {
+      breadcrumb: ''
+    }
+  },
+  { path: 'cardview', component: CardViewComponent,
+  data: {
+    breadcrumb: 'Card'
+  }
+ },
+  { path: 'listview', component: ListViewComponent,
+  data: {
+    breadcrumb: 'List'
+  }
+ },
+  { path: 'add', component: AddEditWebappComponent,
+  data: {
+    breadcrumb: 'Add'
+  }
+ },
+  { path: 'edit/:id', component: AddEditWebappComponent,
+  data: {
+    breadcrumb: 'Edit'
+  }
+ }
 ]
 
 @NgModule({

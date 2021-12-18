@@ -8,18 +8,30 @@ const routes: Routes = [
   {
     path: '',
     component: NoteMainComponent,
+    data: {
+      breadcrumb: ''
+    },
     children: [
       {
         path: ':categoryId/add',
         component: NoteEditorComponent,
+        data: {
+          breadcrumb: 'Add Category'
+        },
       },
       {
         path: 'edit/:id',
         component: NoteEditorComponent,
+        data: {
+          breadcrumb: 'Edit'
+        },
       },
       {
         path: 'view/:id',
         component: NoteViewerComponent,
+        data: {
+          breadcrumb: 'View'
+        },
       }
     ]
   },

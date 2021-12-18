@@ -1,16 +1,16 @@
-.main{
-    display: flex;
-    
-    .side-bar{
-        flex-shrink: 0; 
-  flex-basis: 200px; 
-  padding: 10px;
-  margin: 1rem;
-  border-right: 2px dashed gray;
-  height: 80vh;
-  overflow: auto;
-    }
-    .editor{
-        flex-basis: 100%;
-    }
+.main {
+  display: flex;
+
+  .side-bar {
+    flex-shrink: 0;
+    flex-basis: 200px;
+    padding: 10px;
+    margin: 1rem;
+    border-right: 2px dashed gray;
+    height: 80vh;
+    overflow: auto;
+  }
+  .editor {
+    flex-basis: 100%;
+  }
 }

@@ -12,6 +12,6 @@ export class Webapp {
   tags?: any[];
   type?: string;
   authorName?: string;
-  isLocal: boolean = true;
-  isActive: boolean = true;
+  isLocal?: boolean = true;
+  isActive?: boolean = true;
 }

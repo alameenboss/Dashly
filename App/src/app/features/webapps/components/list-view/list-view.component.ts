@@ -39,6 +39,7 @@ export class ListViewComponent implements AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    this.table.dataSource = new MatTableDataSource(_DATA_)
     this.getAllTemplate();
   }
 
@@ -116,3 +117,11 @@ export class ListViewComponent implements AfterViewInit {
     return undefined;
   }
 }
+
+let _DATA_: Webapp[] = [
+  {
+    id: 1,
+    name: 'Google',
+    hostedLocationUrl: 'https://www.google.com'
+  }
+]

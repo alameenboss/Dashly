@@ -6,16 +6,28 @@ import { DocumentListComponent } from './components/document-list/document-list.
 
 const routes: Routes = [
   {
-    path: '', redirectTo:`edit/${uuidV4()}`,pathMatch: 'full'
+    path: '', redirectTo:`edit/${uuidV4()}`,pathMatch: 'full',
+    data: {
+      breadcrumb: ''
+    }
   },
   {
-    path:'',component: DocEditorComponent
+    path:'',component: DocEditorComponent,
+    data: {
+      breadcrumb: ''
+    }
   },
   {
-    path:'list',component: DocumentListComponent
+    path:'list',component: DocumentListComponent,
+    data: {
+      breadcrumb: 'list'
+    }
   },
   {
-    path: 'edit/:id', component: DocEditorComponent
+    path: 'edit/:id', component: DocEditorComponent,
+    data: {
+      breadcrumb: 'Edit'
+    }
   },
 ];
 

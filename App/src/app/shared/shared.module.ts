@@ -10,6 +10,7 @@ import { ProgressComponent } from './components/progress/progress.component';
 import { FileuploadComponent } from './components/fileupload/fileupload.component';
 import { RouterModule } from '@angular/router';
 import { MenuListItemComponent } from './components/layout/menu-list-item/menu-list-item.component';
+import { BreadcrumbComponent } from './components/layout/breadcrumb/breadcrumb.component';
 
 const directive = [
   DndDirective,
@@ -19,6 +20,7 @@ const components = [
   SpinnerOverlayComponent,
   MainNavComponent,
   MenuListItemComponent,
+  BreadcrumbComponent,
   ProgressComponent,
   FileuploadComponent
 ]

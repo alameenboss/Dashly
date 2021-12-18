@@ -20,7 +20,7 @@ export class DocumentListComponent implements OnInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<any>;
   dataSource: MatTableDataSource<any>;
-  displayedColumns = ['docid', 'content', 'action'];
+  displayedColumns = ['docid', 'action'];
 
   constructor(
     public router: Router,

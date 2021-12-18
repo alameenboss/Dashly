@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/app/features/authentication/models/user';
 import { AuthenticationService } from 'src/app/features/authentication/services/authentication.service';
 import { Role } from 'src/app/features/authentication/models/role';
-import { NavService } from 'src/app/shared/services/nav.service';
+import { NavService } from 'src/app/nav.service';
 
 
 @Component({
@@ -24,8 +24,8 @@ export class MainNavComponent implements OnInit {
 
   // constructor(private breakpointObserver: BreakpointObserver) {}
   currentUser: User;
-  //menuList: { name: string; path: string; }[];
   menuList: any[];
+  items:any[]=['Projects', 'Angular Jira Clone', 'Kanban Board'];
   constructor(
     private router: Router,
     private navService : NavService,
@@ -35,6 +35,9 @@ export class MainNavComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    this.router.events.subscribe(_=>{
+      console.log("Route Event",_)
+    })
     this.menuList = this.navService.getMenu();
   }
 

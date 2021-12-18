@@ -10,7 +10,7 @@ import { WebappService } from '../../services/webapp.service';
 })
 export class CardViewComponent implements OnInit {
   formGroup: FormGroup;
-  webapps: Webapp[] = []
+  webapps: Webapp[] = _DATA_
   showImage: boolean = true;
   allowEdit: boolean = false;
 
@@ -39,3 +39,20 @@ export class CardViewComponent implements OnInit {
     alert(JSON.stringify(this.formGroup.value, null, 2));
   }
 }
+let _DATA_: Webapp[] = [
+  {
+    id: 1,
+    name: 'Google',
+    hostedLocationUrl: 'https://www.google.com'
+  },
+  {
+    id: 2,
+    name: 'facebook',
+    hostedLocationUrl: 'https://www.facebook.com'
+  },
+  {
+    id: 3,
+    name: 'Microsoft',
+    hostedLocationUrl: 'https://www.microsoft.com'
+  }
+]

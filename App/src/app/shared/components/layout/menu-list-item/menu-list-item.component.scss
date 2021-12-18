@@ -5,22 +5,22 @@
   width: 100%;
 
   .mat-list-item.active {
-    background-color: '#000';
+    background-color: rgb(142, 181, 255);
   }
-  &:hover,
-  &:focus {
+  //
+  &:hover {
     >.mat-list-item:not(.expanded) {
-      background-color: '#FFF' !important;
+      background-color: rgb(17, 177, 240) !important;
     }
   }
 }
 
 .mat-list-item {
-  padding: 8px 0;
+  padding: 4px 0;
   display: flex;
   width: auto;
 
   .routeIcon {
-    margin-right: 40px;
+    margin-right: 5px;
   }
 }

@@ -5,12 +5,11 @@
   left: 0;
   right: 0;
 }
-
 .sidenav {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 230px;
+  width: 200px;
 }
 
 .footer {
@@ -18,7 +17,34 @@
   bottom: 0;
   left: 0;
   right: 0;
+  height: 30px !important;
+  ul {
+    list-style: none;
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    li {
+      margin-left: 20px;
+      a{
+        font-weight: 500;
+        color: #3e75ff;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
-.content-container{
-  padding: 20px;
+.content-container {
+  padding: 8px;
+}
+.bread-crumb{
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #ffffff;
+  border: none;
+  margin: 0;
+  padding: 0;
 }

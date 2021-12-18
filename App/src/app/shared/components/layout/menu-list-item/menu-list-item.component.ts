@@ -1,7 +1,7 @@
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { NavService } from 'src/app/shared/services/nav.service';
+import { NavService } from 'src/app/nav.service';
 import { NavItem } from './NavItem';
 
 

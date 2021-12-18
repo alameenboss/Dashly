@@ -1,8 +1,8 @@
 <form [formGroup]="noteForm" (ngSubmit)="onSubmit()">
-    <mat-card class="wrapper">
-        <mat-card-content>
-            <div class="row">
-                <div class="column">
+    <div class="wrapper">
+        <div class="row">
+            <div class="column">
+                <div class="action-buttons">
                     <mat-form-field class="full-width-input">
                         <input type="text" autocomplete="new-password" matInput placeholder="Title"
                             formControlName="title" required>
@@ -10,16 +10,16 @@
                             Please provide a title name
                         </mat-error>
                     </mat-form-field>
-                    <app-text-editor [control]="notesRawControl"></app-text-editor>
+                    <button mat-button color="accent" type="reset">Reset</button>
+                    <button mat-button color="primary">Save</button>
                 </div>
             </div>
-        </mat-card-content>
-        <mat-card-actions>
-            <div class="footer">
-                <button mat-button color="accent" type="reset">Reset</button>
-                <button mat-raised-button color="primary">Save</button>
+        </div>
+        <div class="row">
+            <div class="column">
+                <app-text-editor [control]="notesRawControl"></app-text-editor>
             </div>
+        </div>
+    </div>
 
-        </mat-card-actions>
-    </mat-card>
 </form>

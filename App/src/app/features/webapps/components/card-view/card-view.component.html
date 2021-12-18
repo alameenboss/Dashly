@@ -1,10 +1,13 @@
 <div class="row">
     <form class="example-form" [formGroup]="formGroup" (ngSubmit)="onFormSubmit()" ngNativeValidate>
-        <mat-slide-toggle formControlName="showImage">Show Images</mat-slide-toggle>
-        <mat-slide-toggle formControlName="allowEdit">Edit</mat-slide-toggle>
+        <div class="row">
+            <mat-slide-toggle formControlName="showImage">Show Images</mat-slide-toggle>
+            <mat-slide-toggle formControlName="allowEdit">Edit</mat-slide-toggle>
+        </div>
         <!-- <button mat-raised-button type="submit">Save Settings</button> -->
       </form>
 </div>
+<p><br/></p>
 <div class="row">
     <div class="column" *ngFor="let webapp of webapps">
         <app-card [Webapp]="webapp" [ShowImage]="showImage" [AllowEdit]="allowEdit"></app-card>

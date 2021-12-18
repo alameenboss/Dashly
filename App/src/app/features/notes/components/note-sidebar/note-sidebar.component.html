@@ -1,11 +1,7 @@
+<ng-container *ngTemplateOutlet="replyThread; context: { $implicit: notecategories }">
 
-<mat-card>
-    <mat-card-content>
-        <ng-container *ngTemplateOutlet="replyThread; context: { $implicit: notecategories }">
+</ng-container>
 
-        </ng-container>
-    </mat-card-content>
-</mat-card>
 
 <ng-template #replyThread let-category>
     <ul>

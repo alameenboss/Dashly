@@ -1,24 +1,13 @@
-<div style="
-display: flex;
-flex-wrap: nowrap;
-flex-direction: row;
-justify-content: space-between;
-align-items: baseline;
-">
-  <mat-form-field appearance="standard">
+<div>
+  <mat-form-field appearance="standard" style=" width: 100%;">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field>
-  <div>
-    <button mat-raised-button style="margin-right: 10px;" color="accent" (click)="deleteAllWebapp()">Delete All</button>
-    <button mat-raised-button  color="primary" (click)="addwebapp()">Add</button>
-  </div>
 </div>
 <div class="mat-elevation-z8">
   <div class="example-container">
-    <table mat-table class="full-width-table" 
-    matSort matSortActive="name"  matSortDirection="asc" matSortDisableClear
-    aria-label="Rows" multiTemplateDataRows>
+    <table mat-table class="full-width-table" matSort matSortActive="name" matSortDirection="asc" matSortDisableClear
+      aria-label="Rows" multiTemplateDataRows>
       <!-- Id Column -->
       <ng-container matColumnDef="id" sticky>
         <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
@@ -26,7 +15,7 @@ align-items: baseline;
       </ng-container>
 
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Preview </th>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
         <td mat-cell *matCellDef="let row">
           <a href="{{row.hostedLocationUrl}}" target="_blank">
             {{row.name}}
@@ -38,14 +27,26 @@ align-items: baseline;
       <ng-container matColumnDef="tags">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Tags</th>
         <td mat-cell *matCellDef="let row">
-          <mat-chip-list>
-            <mat-chip *ngFor="let tag of row.tags">{{tag.name}}</mat-chip>
-          </mat-chip-list>
+
+          <span *ngFor="let tag of row.tags" class="tagItem">{{tag.name}}</span>
+
         </td>
       </ng-container>
 
       <ng-container matColumnDef="action" stickyEnd>
-        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <th mat-header-cell *matHeaderCellDef>
+          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu" xPosition="before">
+            <button mat-menu-item (click)="addwebapp()">
+              <mat-icon>add_box</mat-icon>Add New
+            </button>
+            <button mat-menu-item (click)="deleteAllWebapp()">
+              <mat-icon>delete</mat-icon> Delete All
+            </button>
+          </mat-menu>
+        </th>
         <td mat-cell *matCellDef="let row">
           <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
             <mat-icon>more_vert</mat-icon>
