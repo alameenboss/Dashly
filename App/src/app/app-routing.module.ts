@@ -74,6 +74,14 @@ const routes: Routes = [
     loadChildren: () => import('src/app/features/documents/documents.module').then(m => m.DocumentsModule)
   },
   {
+    path: 'contacts',
+    data: {
+      breadcrumb: 'Contact'
+    },
+    component: MainNavComponent,
+    loadChildren: () => import('src/app/features/contacts/contacts.module').then(m => m.ContactsModule)
+  },
+  {
     path: 'feedback',
     data: {
       breadcrumb: 'Feedback'

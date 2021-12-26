@@ -53,7 +53,10 @@ export class NavService {
         { displayName: 'List', iconName: 'list', route: '/integration/list' }
       ]}, 
       { displayName: 'Task', iconName: 'task', route: '/task' },
-      { displayName: 'Contacts', iconName: 'contact_page', route: '/contacts' },
+      { displayName: 'Contacts', iconName: 'contact_page', route: '/contacts', children: [
+        { displayName: 'Edit', iconName: 'add', route: '/contacts' },
+        { displayName: 'List', iconName: 'list', route: '/contacts/list' }
+      ]},
       { displayName: 'Family Hierarchy', iconName: 'people', route: '/family' },
       { displayName: 'Passwords', iconName: 'pin', route: '/password' },
       { displayName: 'Pay Slips', iconName: 'request_quote', route: '/payslips' },
