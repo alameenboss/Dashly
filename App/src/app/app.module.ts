@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { SharedModule } from './shared/shared.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationModule } from './features/authentication/authentication.module';
 import { WebappModule } from './features/webapps/webapp.module';
@@ -14,6 +14,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ImpoterComponent } from './features/import-data/impoter/impoter.component';
 import { QuillModule } from 'ngx-quill';
 import { SignInComponent } from './features/integration/components/signin/signin.component';
+import { SpinnerInterceptor } from './shared/components/spinner-overlay/spinner-interceptor';
 
 const applicationModule = [
   AuthenticationModule,
@@ -39,7 +40,9 @@ const applicationModule = [
     SharedModule,
     QuillModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
