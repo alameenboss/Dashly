@@ -13,12 +13,14 @@
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
+		<PackageReference Include="MixERP.Net.VCards" Version="1.0.7" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 		<PackageReference Include="NSwag.AspNetCore" Version="13.9.4" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Feature\Contacts\Data\" />
 	  <Folder Include="Models\Notes\" />
 	</ItemGroup>
 </Project>
