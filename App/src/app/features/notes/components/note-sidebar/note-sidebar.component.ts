@@ -6,6 +6,7 @@ import { NoteCategory } from '../../models/note-category.model';
 import { Note } from '../../models/note.model';
 import { NoteCategoryService } from '../../services/note-category.service';
 import { CommonService } from "../../services/CommonService";
+import { NotesService } from '../../services/notes.service';
 
 @Component({
   selector: 'app-note-sidebar',
@@ -19,6 +20,7 @@ export class NoteSidebarComponent implements OnInit, OnDestroy {
 
   constructor(
     public noteCategoryService: NoteCategoryService,
+    public notesService: NotesService,
     public commonService: CommonService,
     public router: Router,
     private route: ActivatedRoute
@@ -43,13 +45,24 @@ export class NoteSidebarComponent implements OnInit, OnDestroy {
     })
   }
 
-  onItemSelected(note: Note) {
-    this.router.navigate(['view', note.id], { relativeTo: this.route });
-  }
-
+  
   onCategorySelected(category: NoteCategory) {
     this.router.navigate([category.id, 'add'], { relativeTo: this.route });
   }
+
+  deleteNote(note: Note) {
+    this.notesService.delete(note.id).subscribe(x=>{
+      this.commonService.sendUpdate('Note Updated');
+    })
+  }
+
+  onNoteSelected(note: Note) {
+    this.router.navigate(['view', note.id], { relativeTo: this.route });
+  }
+  editNote(note: Note) {
+    this.router.navigate(['edit', note.id], { relativeTo: this.route });
+  }
+
 
   ngOnDestroy() {
     this.subscriptionName.unsubscribe();

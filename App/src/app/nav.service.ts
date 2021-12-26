@@ -38,9 +38,9 @@ export class NavService {
       },
       { displayName: 'Import Data', iconName: 'upload_file', route: '/dashboard/import' },
       { displayName: 'File Explorer', iconName: 'folder_open', route: '/fileexplorer' },
-      { displayName: 'GitHub Repo', iconName: 'code', route: '/github' , children: [
-        { displayName: 'List', iconName: 'list', route: '/github/listview' },
-        { displayName: 'Card', iconName: 'view_day', route: '/github/cardview' }
+      { displayName: 'Projects', iconName: 'code', route: '/projects' , children: [
+        { displayName: 'List', iconName: 'list', route: '/projects/listview' },
+        { displayName: 'Card', iconName: 'view_day', route: '/projects/cardview' }
       ]},
       
       { displayName: 'Notes', iconName: 'text_snippet', route: '/notes' },

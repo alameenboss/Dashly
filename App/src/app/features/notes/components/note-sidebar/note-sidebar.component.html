@@ -6,12 +6,25 @@
 <ng-template #replyThread let-category>
     <ul>
         <li *ngFor="let cat of category">
-            <span (click)="onCategorySelected(cat)">
-                📕 {{ cat.name }}
+            <span class="title-wrapper" (click)="onCategorySelected(cat)">
+                <mat-icon>folder</mat-icon>
+                <span class="title">{{ cat.name }}</span>
+                <span class="actions">
+                    <mat-icon>create_new_folder</mat-icon>
+                    <mat-icon>edit</mat-icon>
+                    <mat-icon>delete</mat-icon>
+                </span>
             </span>
             <ul *ngIf="cat.notes">
-                <li *ngFor="let note of cat.notes" (click)="onItemSelected(note)">
-                    <span>📃 {{ note.title }}</span>
+                <li *ngFor="let note of cat.notes">
+                    <span class="title-wrapper">
+                        <mat-icon>description</mat-icon>
+                        <span class="title" (click)="onNoteSelected(note)"> {{ note.title }}</span>
+                        <span class="actions">
+                            <mat-icon (click)="editNote(note)">edit</mat-icon>
+                            <mat-icon (click)="deleteNote(note)">delete</mat-icon>
+                        </span>
+                    </span>
                 </li>
             </ul>
             <ng-container *ngIf="cat.categories">

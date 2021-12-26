@@ -12,7 +12,7 @@ export class CardViewComponent implements OnInit {
   formGroup: FormGroup;
   webapps: Webapp[] = _DATA_
   showImage: boolean = true;
-  allowEdit: boolean = false;
+  allowEdit: boolean = true;
 
   constructor(private formBuilder: FormBuilder, private templateService: WebappService) { }
 

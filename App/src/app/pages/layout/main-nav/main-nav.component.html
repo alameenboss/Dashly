@@ -4,8 +4,9 @@
       <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
     </button>
     <span (click)="gotoHome()"> Dashly </span>
-
-
+    <div class="bread-crumb">
+      <app-breadcrumb></app-breadcrumb>
+    </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="container">
@@ -19,9 +20,7 @@
     </mat-sidenav>
 
     <mat-sidenav-content>
-      <div class="bread-crumb">
-        <app-breadcrumb></app-breadcrumb>
-      </div>
+     
       <div class="content-container">
         <router-outlet></router-outlet>
       </div>

@@ -5,11 +5,11 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class GithubProcessorService {
-  githubProcessorUrl: string = environment.apiUrl + '/' + 'githubprocessor'
+export class ProjectsService {
+  projectsUrl: string = environment.apiUrl + '/' + 'githubprocessor'
   constructor(private http: HttpClient) { }
 
   getAll() {
-    return this.http.get<any[]>(this.githubProcessorUrl);
+    return this.http.get<any[]>(this.projectsUrl);
   }
 }

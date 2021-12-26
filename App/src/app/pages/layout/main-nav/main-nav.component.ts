@@ -36,7 +36,6 @@ export class MainNavComponent implements OnInit {
   }
   ngOnInit(): void {
     this.router.events.subscribe(_=>{
-      console.log("Route Event",_)
     })
     this.menuList = this.navService.getMenu();
   }

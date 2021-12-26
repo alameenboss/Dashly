@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { GithubRoutingModule } from './github-routing.module';
+import { ProjectsRoutingModule } from './projects-routing.module';
 import { CardViewComponent } from './components/card-view/card-view.component';
 import { TableViewComponent } from './components/table-view/table-view.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,11 +16,11 @@ import { SharedModule } from 'src/app/shared/shared.module';
   ],
   imports: [
     CommonModule,
-    GithubRoutingModule,
+    ProjectsRoutingModule,
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
     SharedModule
   ]
 })
-export class GithubModule { }
+export class ProjectsModule { }

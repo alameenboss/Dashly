@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FeedbackMainComponent } from './features/feedbacks/components/feedback-main/feedback-main.component';
 import { ImpoterComponent } from './features/import-data/impoter/impoter.component';
-import { SignInComponent } from './integration/components/signin/signin.component';
+import { SignInComponent } from './features/integration/components/signin/signin.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
-import { MainNavComponent } from './shared/components/layout/main-nav/main-nav.component';
-
+import { MainNavComponent } from './pages/layout/main-nav/main-nav.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -52,12 +50,12 @@ const routes: Routes = [
     loadChildren: () => import('src/app/features/file-explorer/file-explorer.module').then(m => m.FileExplorerModule)
   },
   {
-    path: 'github',
+    path: 'projects',
     component: MainNavComponent,
     data: {
-      breadcrumb: 'Github'
+      breadcrumb: 'Projects'
     },
-    loadChildren: () => import('src/app/features/Github/github.module').then(m => m.GithubModule)
+    loadChildren: () => import('src/app/features/projects/projects.module').then(m => m.ProjectsModule)
   },
   {
     path: 'notes',
@@ -93,7 +91,7 @@ const routes: Routes = [
       breadcrumb: 'Integration'
     },
     component: MainNavComponent,
-    loadChildren: () => import('src/app/integration/integration.module').then(m => m.IntegrationModule)
+    loadChildren: () => import('src/app/features/integration/integration.module').then(m => m.IntegrationModule)
   },
   {
     path: 'task',

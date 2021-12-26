@@ -12,22 +12,15 @@ export class BoardListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  todo = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
 
-  inprogress = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail'
-  ];
-  done = [
-    'Walk dog'
-  ];
+  status = [
+    { name: "To do", data: ['Get to work', 'Pick up groceries', 'Go home', 'Fall asleep'] },
+    { name: 'In Progress', data: ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail'] },
+    { name: 'Review', data: [] },
+    { name: 'Pending', data: [] },
+    { name: 'Won\'t Do', data: [] },
+    { name: 'Done', data: ['Walk dog'] }
+  ]
 
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {

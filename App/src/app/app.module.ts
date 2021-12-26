@@ -13,7 +13,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ImpoterComponent } from './features/import-data/impoter/impoter.component';
 import { QuillModule } from 'ngx-quill';
-import { SignInComponent } from './integration/components/signin/signin.component';
+import { SignInComponent } from './features/integration/components/signin/signin.component';
 
 const applicationModule = [
   AuthenticationModule,

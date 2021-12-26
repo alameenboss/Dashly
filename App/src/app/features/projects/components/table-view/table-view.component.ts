@@ -2,7 +2,7 @@ import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTable, MatTableDataSource } from '@angular/material/table';
-import { GithubProcessorService } from '../../services/githubprocessor.service';
+import { ProjectsService } from '../../services/projetcs.service';
 
 @Component({
   selector: 'app-table-view',
@@ -17,7 +17,7 @@ export class TableViewComponent implements AfterViewInit {
   displayedColumns = ['id', 'name', 'action'];
 
   constructor(
-    public githubProcessorService: GithubProcessorService) {
+    public projectsService: ProjectsService) {
   }
 
   ngAfterViewInit(): void {
@@ -25,7 +25,7 @@ export class TableViewComponent implements AfterViewInit {
   }
 
   public getAllRepos() {
-    this.githubProcessorService.getAll().subscribe((res: any[]) => {
+    this.projectsService.getAll().subscribe((res: any[]) => {
 
       if (res != null) {
         this.dataSource = new MatTableDataSource(res);

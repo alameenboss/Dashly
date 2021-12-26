@@ -3,22 +3,30 @@
   <img *ngIf="showImage" mat-card-image [src]="imageUrl" alt="{{webapp.name}}"
     onerror="this.onerror=null; this.src='assets/image/default.png'">
   <mat-card-content>
-      <div class="card-content">
-        <div class="card-name">
-          <a href="{{webapp.hostedLocationUrl}}" target="_blank">{{webapp.name}}</a>
-        </div>
-        
-        <button *ngIf="allowEdit" mat-icon-button (click)="editWebapp(webapp.id)"><mat-icon>edit</mat-icon></button>
-        <button *ngIf="allowEdit" mat-icon-button (click)="removeWebapp(webapp.id)"><mat-icon>delete</mat-icon></button>
+    <div class="card-content">
+      <div class="card-name">
+        <a href="{{webapp.hostedLocationUrl}}" target="_blank">{{webapp.name}}</a>
+      </div>
+      <div>
+
         <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
           <mat-icon>more_vert</mat-icon>
         </button>
       </div>
-      
-      <mat-menu #menu="matMenu" xPosition="before">
+    </div>
+
+    <mat-menu #menu="matMenu" xPosition="before">
+      <div style="display: flex;flex-direction: column; align-items: flex-start;">
         <button mat-button>
           <mat-icon>download</mat-icon> Download
         </button>
-      </mat-menu>
+        <button mat-button (click)="removeWebapp(webapp.id)">
+          <mat-icon>delete</mat-icon> Delete
+        </button>
+        <button mat-button (click)="editWebapp(webapp.id)">
+          <mat-icon>edit</mat-icon> Edit
+        </button>
+      </div>
+    </mat-menu>
   </mat-card-content>
 </mat-card>

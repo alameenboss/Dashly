@@ -4,14 +4,38 @@
 }
 ul{
     list-style: none;
+    margin: 0px;
+    
 }
 
 ul li{
     margin-left: 20px;
-    
+
 }
 
-li span {
+.title-wrapper{
+    display:flex;
     font-weight: 500;
     cursor:pointer;
+    .actions{
+        display: none;
+    }
+    &:hover{
+        transform: scale(1.05);
+        width: 100px;
+        .actions{
+            margin-left: 5px;
+            margin-top: -3px;
+            padding: 0;
+            display: inline-flex;
+        }
+    }
+
+    .title{
+        
+        &:hover{
+            
+        }
+    }
+    
 }

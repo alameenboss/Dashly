@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { GithubProcessorService } from '../../services/githubprocessor.service';
+import { ProjectsService } from '../../services/projetcs.service';
 
 @Component({
   selector: 'app-card-view',
@@ -17,7 +17,7 @@ export class CardViewComponent implements OnInit {
   showFork:boolean = false;
 
   constructor(private formBuilder: FormBuilder,
-    private githubProcessorService: GithubProcessorService) { }
+    private projectsService: ProjectsService) { }
 
   ngOnInit(): void {
 
@@ -27,10 +27,9 @@ export class CardViewComponent implements OnInit {
       showFork: false
     });
 
-    this.githubProcessorService.getAll().subscribe((res: any[]) => {
+    this.projectsService.getAll().subscribe((res: any[]) => {
       if (res != null) {
         this.allResult = res.sort((a, b) => (a.name < b.name ? -1 : 1));
-        console.log(res)
         this.gitRepos = this.allResult.filter(x=>x.fork==false);
       }
     });

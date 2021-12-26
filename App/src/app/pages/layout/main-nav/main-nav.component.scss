@@ -1,9 +1,13 @@
 .container {
   position: absolute;
-  top: 60px;
-  bottom: 60px;
+  top: 30px;
+  bottom: 30px;
   left: 0;
   right: 0;
+}
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+  height: 30px;
 }
 .sidenav {
   display: flex;
@@ -25,7 +29,7 @@
     width: 100%;
     li {
       margin-left: 20px;
-      a{
+      a {
         font-weight: 500;
         color: #3e75ff;
         text-decoration: none;
@@ -39,12 +43,12 @@
 .content-container {
   padding: 8px;
 }
-.bread-crumb{
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  background-color: #ffffff;
-  border: none;
-  margin: 0;
+.bread-crumb {
+  position: fixed;
+  right: 0;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
   padding: 0;
+  margin: 0;
 }

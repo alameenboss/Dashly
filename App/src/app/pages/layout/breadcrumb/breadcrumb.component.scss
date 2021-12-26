@@ -1,13 +1,10 @@
 .breadcrumb {
-    padding: 5px;
-    margin: 5px;
     display: flex;
     justify-content: flex-end;
-    a, span {
-        color: #0969da;
-    }
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px;
     a:hover, span:hover {
-        color: #145caf;
         text-decoration: none;
     }
     li{
