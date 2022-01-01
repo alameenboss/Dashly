@@ -3,14 +3,16 @@ using System;
 using Dashly.API.Repositories.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Dashly.API.Migrations
 {
     [DbContext(typeof(DashlyContext))]
-    partial class DashlyContextModelSnapshot : ModelSnapshot
+    [Migration("20220101135900_contact")]
+    partial class contact
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

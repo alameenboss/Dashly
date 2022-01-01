@@ -7,6 +7,7 @@ using Dashly.API.Models.Github;
 using Dashly.API.Repositories.Data.Entity.Notes;
 using Dashly.API.Feature.Documents.Models;
 using Dashly.API.Feature.OAuthIntegrations.Models;
+using Dashly.API.Feature.Contacts.Models;
 
 namespace Dashly.API.Repositories.Data
 {
@@ -99,6 +100,8 @@ namespace Dashly.API.Repositories.Data
             modelBuilder.Entity<Role>()
                 .HasQueryFilter(x => x.IsActive == true)
                 .ToTable("Role");
+
+            modelBuilder.Entity<Contact>();
         }
     }
 }
