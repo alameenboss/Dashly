@@ -5,6 +5,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Feature\WebApps\DTO\Response\**" />
+	  <Content Remove="Feature\WebApps\DTO\Response\**" />
+	  <EmbeddedResource Remove="Feature\WebApps\DTO\Response\**" />
+	  <None Remove="Feature\WebApps\DTO\Response\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
 		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.11" />
 		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.21" />
@@ -17,10 +24,5 @@
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
 		<PackageReference Include="NSwag.AspNetCore" Version="13.9.4" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Feature\Contacts\Data\" />
-	  <Folder Include="Models\Notes\" />
 	</ItemGroup>
 </Project>

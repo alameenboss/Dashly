@@ -1,5 +1,4 @@
 ﻿using Dashly.API.Feature.OAuthIntegrations.Models;
-using Dashly.API.Repositories.Data.Entity.Notes;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

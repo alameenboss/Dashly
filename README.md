@@ -20,15 +20,15 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 - [ ] Authentication
 - [ ] User Management
-- [ ] Document viewer
+- [x] Document viewer
 - [ ] Feedbacks
 - [ ] File explorer
-- [ ] Github Repos list
-- [ ] Import data for json
-- [ ] Notes
-- [ ] Task Board
+- [x] Github Repos list
+- [x] Import data for json
+- [x] Notes
+- [x] Task Board
 - [ ] Web builder
-- [ ] Web App bookmarker
+- [x] Web App bookmarker
 
 ## Integration
-- [ ] Github
+- [x] Github
