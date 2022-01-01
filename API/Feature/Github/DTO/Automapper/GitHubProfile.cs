@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
-using Dashly.API.ConnectedServices.GitHub.Models;
-using Dashly.API.Models.Github;
 
-namespace Dashly.API.Models.Webapps.Automapper
+namespace Dashly.API.Feature.Github.DTO.Automapper
 {
     public class GitHubProfile : Profile
     {

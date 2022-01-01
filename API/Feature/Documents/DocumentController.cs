@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Dashly.API.Feature.Documents.Data;
-using Dashly.API.Feature.Documents.Models;
+using Dashly.API.Feature.Documents.Data.Entity;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -49,6 +49,5 @@ namespace Dashly.API.Feature.Documents
         {
             return await _documentRepository.DeleteAll();
         }
-
     }
 }

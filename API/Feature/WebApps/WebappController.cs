@@ -1,22 +1,16 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Dashly.API.Models.Webapps.Request;
-using Dashly.API.Repositories.Data.Entity;
-using Dashly.API.Repositories.Interface;
-using Dashly.API.DataImport;
-using Dashly.API.Repositories.Data;
+using Dashly.API.Feature.DataImport;
+using Dashly.API.Feature.WebApps.Data.Entity;
+using Dashly.API.Feature.WebApps.Data.Repository;
+using Dashly.API.Feature.WebApps.DTO.Request;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Controllers
+namespace Dashly.API.Feature.WebApps
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -64,7 +58,7 @@ namespace Dashly.API.Controllers
         }
 
         [HttpPost("{id}/addatachment")]
-        public async Task<ActionResult<Webapp>> AddAttachment(int id,AttachmentRequest request)
+        public async Task<ActionResult<Webapp>> AddAttachment(int id, AttachmentRequest request)
         {
             var attachment = _mapper.Map<Attachment>(request);
             await _webappRepository.AddAttachment(id, attachment);

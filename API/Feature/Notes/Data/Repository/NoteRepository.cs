@@ -1,16 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Dashly.API.Data.Entity;
+using Dashly.API.Feature.Notes.Data.Entity;
+using Dashly.API.Helpers;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Dashly.API.Helpers;
-using Dashly.API.Repositories.Data;
-using Dashly.API.Repositories.Data.Entity;
-using Dashly.API.Repositories.Interface;
-using Dashly.API.Repositories.Data.Entity.Notes;
 
-namespace Dashly.API.Repositories
+namespace Dashly.API.Feature.Notes.Data.Repository
 {
-
     public class NoteRepository : INoteRepository
     {
         private readonly DashlyContext _dbContext;
@@ -55,7 +52,6 @@ namespace Dashly.API.Repositories
             return true;
         }
 
-
         public async Task<bool> Delete(int id)
         {
             var note = await _dbContext.Notes.FirstOrDefaultAsync(x => x.Id == id);
@@ -79,6 +75,5 @@ namespace Dashly.API.Repositories
             await _dbContext.SaveChangesAsync();
             return true;
         }
-
     }
 }

@@ -1,10 +1,10 @@
-﻿using Dashly.API.Feature.OAuthIntegrations.Models;
+﻿using Dashly.API.Data.Entity;
+using Dashly.API.Feature.OAuthIntegrations.Data.Entity;
 using Dashly.API.Helpers;
-using Dashly.API.Repositories.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Dashly.API.Feature.OAuthIntegrations.Data
 {
@@ -21,7 +21,7 @@ namespace Dashly.API.Feature.OAuthIntegrations.Data
 
         public async Task<IEnumerable<OAuthIntegration>> GetAll()
         {
-            var result =  await _dbContext.OAuthIntegrations.ToListAsync();
+            var result = await _dbContext.OAuthIntegrations.ToListAsync();
 
             return result?.Select(x => new OAuthIntegration()
             {
@@ -63,6 +63,7 @@ namespace Dashly.API.Feature.OAuthIntegrations.Data
         {
             return await _dbContext.OAuthIntegrations.FirstOrDefaultAsync(x => x.Name.ToLower() == name.ToLower());
         }
+
         public async Task<bool> UpdateOAuthCode(string name, string code)
         {
             var response = await _dbContext.OAuthIntegrations.FirstOrDefaultAsync(x => x.Name.ToLower() == name.ToLower());
@@ -77,7 +78,5 @@ namespace Dashly.API.Feature.OAuthIntegrations.Data
 
             return false;
         }
-
-        
     }
 }

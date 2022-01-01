@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Dashly.API.Helpers
+namespace Dashly.API.Feature.WebApps.DTO.Request
 {
     public class WebappData
     {

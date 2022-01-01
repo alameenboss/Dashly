@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Dashly.API.Models.Webapps.Request;
-using Dashly.API.Repositories.Data.Entity;
+using Dashly.API.Feature.WebApps.Data.Entity;
+using Dashly.API.Feature.WebApps.DTO.Request;
 
-namespace Dashly.API.Models.Webapps.Automapper
+namespace Dashly.API.Feature.WebApps.DTO.Automapper
 {
     public class WebappProfile : Profile
     {

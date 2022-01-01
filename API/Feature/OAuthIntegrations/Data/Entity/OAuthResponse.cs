@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.Feature.OAuthIntegrations.Models
+﻿namespace Dashly.API.Feature.OAuthIntegrations.Data.Entity
 {
     public class OAuthResponse
     {
@@ -9,5 +9,4 @@
         public string token_type { get; set; }
         public string scope { get; set; }
     }
-
 }

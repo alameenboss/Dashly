@@ -1,16 +1,13 @@
 ﻿using AutoMapper;
-using Dashly.API.ConnectedServices.GitHub;
-using Dashly.API.ConnectedServices.GitHub.Models;
-using Dashly.API.Models.Github;
-using Dashly.API.Repositories.Data;
-using Microsoft.AspNetCore.Http;
+using Dashly.API.Data.Entity;
+using Dashly.API.Feature.Github.Data.Entity;
+using Dashly.API.Feature.Github.Services;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Controllers
+namespace Dashly.API.Feature.Github
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -19,6 +16,7 @@ namespace Dashly.API.Controllers
         private readonly IGithubService _githubService;
         private readonly IMapper _mapper;
         private DashlyContext _context;
+
         public GithubProcessorController(IGithubService githubService, DashlyContext context,
             IMapper mapper)
         {
@@ -26,11 +24,10 @@ namespace Dashly.API.Controllers
             _mapper = mapper;
             _context = context;
         }
-        
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<GitHubRepo>>> GetAll()
         {
-
             if (!_context.GitHubRepos.Any())
             {
                 var gitRepos = await _githubService.GetAll();
@@ -63,14 +60,6 @@ namespace Dashly.API.Controllers
             var gitHubRepos = _context.GitHubRepos.ToList();
 
             return Ok(gitHubRepos);
-
         }
-
-
-
     }
-
-
-
-    
 }

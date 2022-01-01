@@ -1,4 +1,6 @@
-﻿namespace Dashly.API.Repositories.Data.Entity
+﻿using Dashly.API.Data.Entity;
+
+namespace Dashly.API.Feature.WebApps.Data.Entity
 {
     public class Attachment : BaseEntity
     {

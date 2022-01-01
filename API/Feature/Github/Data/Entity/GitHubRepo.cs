@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Dashly.API.Models.Github
+namespace Dashly.API.Feature.Github.Data.Entity
 {
-    public class GitHubRepo 
+    public class GitHubRepo
     {
         public int Id { get; set; }
         public string GitId { get; set; }

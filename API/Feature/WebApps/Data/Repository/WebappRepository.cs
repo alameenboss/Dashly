@@ -1,13 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Dashly.API.Data.Entity;
+using Dashly.API.Feature.WebApps.Data.Entity;
+using Dashly.API.Helpers;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Dashly.API.Helpers;
-using Dashly.API.Repositories.Data;
-using Dashly.API.Repositories.Data.Entity;
-using Dashly.API.Repositories.Interface;
 
-namespace Dashly.API.Repositories
+namespace Dashly.API.Feature.WebApps.Data.Repository
 {
     public class WebappRepository : IWebappRepository
     {
@@ -42,10 +41,10 @@ namespace Dashly.API.Repositories
 
         public async Task<int> Insert(Webapp entity)
         {
-            SetInsertDefaults<Webapp>(entity);
+            SetInsertDefaults(entity);
 
-            entity.Attachments.ForEach(a => SetInsertDefaults<Attachment>(a));
-            entity.Tags.ForEach(t => SetInsertDefaults<Tag>(t));
+            entity.Attachments.ForEach(a => SetInsertDefaults(a));
+            entity.Tags.ForEach(t => SetInsertDefaults(t));
 
             await _dbContext.Webapps.AddAsync(entity);
 
@@ -59,7 +58,6 @@ namespace Dashly.API.Repositories
 
         public async Task<bool> Update(Webapp model, int id)
         {
-
             var oldWebapp = _dbContext.Webapps
                     .Where(p => p.Id == model.Id)
                     .Include(x => x.Attachments)
@@ -68,7 +66,7 @@ namespace Dashly.API.Repositories
 
             if (oldWebapp != null)
             {
-                SetUpdateDefaults<Webapp>(model, model.Id);
+                SetUpdateDefaults(model, model.Id);
                 // Update parent
                 _dbContext.Entry(oldWebapp).CurrentValues.SetValues(model);
 
@@ -95,22 +93,23 @@ namespace Dashly.API.Repositories
             foreach (var attachment in newWebapp.Attachments)
             {
                 var existingChild = oldWebapp.Attachments
-                    .Where(c => c.Id == attachment.Id && c.Id != default(int))
+                    .Where(c => c.Id == attachment.Id && c.Id != default)
                     .SingleOrDefault();
 
                 if (existingChild != null)
                 {
                     // Update child
-                    SetUpdateDefaults<Attachment>(attachment, attachment.Id);
+                    SetUpdateDefaults(attachment, attachment.Id);
                     _dbContext.Entry(existingChild).CurrentValues.SetValues(attachment);
                 }
                 else
                 {
-                    SetInsertDefaults<Attachment>(attachment);
+                    SetInsertDefaults(attachment);
                     oldWebapp.Attachments.Add(attachment);
                 }
             }
         }
+
         private void UpdateTags(Webapp newWebapp, Webapp oldWebapp)
         {
             // Delete children
@@ -124,18 +123,18 @@ namespace Dashly.API.Repositories
             foreach (var tag in newWebapp.Tags)
             {
                 var existingChild = oldWebapp.Tags
-                    .Where(c => c.Id == tag.Id && c.Id != default(int))
+                    .Where(c => c.Id == tag.Id && c.Id != default)
                     .SingleOrDefault();
 
                 if (existingChild != null)
                 {
                     // Update child
-                    SetUpdateDefaults<Tag>(tag, tag.Id);
+                    SetUpdateDefaults(tag, tag.Id);
                     _dbContext.Entry(existingChild).CurrentValues.SetValues(tag);
                 }
                 else
                 {
-                    SetInsertDefaults<Tag>(tag);
+                    SetInsertDefaults(tag);
                     oldWebapp.Tags.Add(tag);
                 }
             }
@@ -183,7 +182,7 @@ namespace Dashly.API.Repositories
             });
             _dbContext.Attachments.UpdateRange(primaryAttachments);
 
-            SetInsertDefaults<Attachment>(attachment);
+            SetInsertDefaults(attachment);
             attachment.WebAppId = webAppId;
             attachment.IsPrimary = true;
             _dbContext.Attachments.Add(attachment);

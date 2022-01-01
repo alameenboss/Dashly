@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Dashly.API.Data.Entity;
+using System.Collections.Generic;
 
-namespace Dashly.API.Repositories.Data.Entity
+namespace Dashly.API.Feature.WebApps.Data.Entity
 {
     public class Webapp : BaseEntity
     {

@@ -1,11 +1,11 @@
 ﻿using AutoMapper;
-using Dashly.API.Repositories.Data.Entity.Notes;
-using Dashly.API.Repositories.Interface;
+using Dashly.API.Feature.Notes.Data.Entity;
+using Dashly.API.Feature.Notes.Data.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Controllers
+namespace Dashly.API.Feature.Notes
 {
     [Route("api/[controller]")]
     [ApiController]

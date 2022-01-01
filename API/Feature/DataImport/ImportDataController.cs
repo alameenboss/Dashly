@@ -1,21 +1,20 @@
-﻿using Dashly.API.DataImport;
-using Dashly.API.Repositories.Data;
+﻿using Dashly.API.Data.Entity;
+using Dashly.API.Feature.Notes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Controllers
+namespace Dashly.API.Feature.DataImport
 {
     [Route("api/[controller]")]
     [ApiController]
     public class ImportDataController : Controller
     {
         private DashlyContext _context;
+
         public ImportDataController(DashlyContext context)
         {
             _context = context;

@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Dashly.API.Repositories.Data.Entity;
+﻿using Dashly.API.Feature.UserManagement.Data.Entity;
+using System.Collections.Generic;
 
-namespace Dashly.API.Services
+namespace Dashly.API.Feature.UserManagement.Services
 {
     public interface IUserService
     {

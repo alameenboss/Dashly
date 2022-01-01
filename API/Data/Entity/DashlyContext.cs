@@ -1,24 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.IO;
-using Dashly.API.Repositories.Data.Entity;
+﻿using Dashly.API.Feature.Contacts.Data.Entity;
+using Dashly.API.Feature.Documents.Data.Entity;
+using Dashly.API.Feature.Github.Data.Entity;
+using Dashly.API.Feature.Notes.Data.Entity;
+using Dashly.API.Feature.OAuthIntegrations.Data.Entity;
+using Dashly.API.Feature.UserManagement.Data.Entity;
+using Dashly.API.Feature.WebApps.Data.Entity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Dashly.API.Models.Github;
-using Dashly.API.Repositories.Data.Entity.Notes;
-using Dashly.API.Feature.Documents.Models;
-using Dashly.API.Feature.OAuthIntegrations.Models;
-using Dashly.API.Feature.Contacts.Models;
-using System.Reflection;
-using System.Linq;
 
-namespace Dashly.API.Repositories.Data
+namespace Dashly.API.Data.Entity
 {
     public abstract class DashlyContext : DbContext
     {
-        protected  readonly IConfiguration Configuration;
+        protected readonly IConfiguration Configuration;
+
         public DashlyContext(IConfiguration configuration)
         {
-           Configuration = configuration;
+            Configuration = configuration;
         }
 
         public DbSet<Webapp> Webapps { get; set; }
@@ -29,7 +27,6 @@ namespace Dashly.API.Repositories.Data
 
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
-
 
         public DbSet<Note> Notes { get; set; }
         public DbSet<NoteCategory> NoteCategories { get; set; }
@@ -76,13 +73,12 @@ namespace Dashly.API.Repositories.Data
             modelBuilder.Entity<NoteCategory>()
                 .HasMany(x => x.Categories);
 
-
             modelBuilder.Entity<Note>()
                         .ToTable("Note");
 
             modelBuilder.Entity<Webapp>()
                 .HasQueryFilter(x => x.IsActive == true);
-               
+
             modelBuilder.Entity<Webapp>()
                .ToTable("Webapp");
 
@@ -95,7 +91,6 @@ namespace Dashly.API.Repositories.Data
               .HasMany(x => x.Tags)
               .WithOne(x => x.Webapp)
               .OnDelete(DeleteBehavior.Cascade);
-
 
             modelBuilder.Entity<Tag>()
                 .HasQueryFilter(x => x.IsActive == true)

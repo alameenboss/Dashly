@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.Feature.OAuthIntegrations.Models
+﻿namespace Dashly.API.Feature.OAuthIntegrations.Data.Entity
 {
     public class OAuthIntegration
     {
@@ -10,5 +10,4 @@
         public string Secret { get; set; }
         public string Code { get; set; }
     }
-
 }

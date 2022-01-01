@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.Models.Webapps.Request
+﻿namespace Dashly.API.Feature.WebApps.DTO.Request
 {
     public class TagRequest
     {

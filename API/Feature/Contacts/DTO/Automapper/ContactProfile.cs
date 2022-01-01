@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using Dashly.API.Feature.Contacts.Models;
-using Dashly.API.Models.Contacts.Request;
+using Dashly.API.Feature.Contacts.Data.Entity;
+using Dashly.API.Feature.Contacts.DTO.Request;
 
-namespace Dashly.API.Models.Contacts.Automapper
+namespace Dashly.API.Feature.Contacts.DTO.Automapper
 {
     public class ContactProfile : Profile
     {

@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.Helpers
+﻿namespace Dashly.API.Feature.Authentication
 {
     public class AppSettings
     {

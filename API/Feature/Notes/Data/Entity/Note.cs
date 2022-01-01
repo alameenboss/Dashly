@@ -1,8 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Dashly.API.Repositories.Data.Entity.Notes
+﻿namespace Dashly.API.Feature.Notes.Data.Entity
 {
     public class Note
     {

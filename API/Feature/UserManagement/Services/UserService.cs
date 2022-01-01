@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Options;
+﻿using Dashly.API.Feature.Authentication;
+using Dashly.API.Feature.UserManagement.Data.Entity;
+using Dashly.API.Helpers;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -6,10 +9,8 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using Dashly.API.Helpers;
-using Dashly.API.Repositories.Data.Entity;
 
-namespace Dashly.API.Services
+namespace Dashly.API.Feature.UserManagement.Services
 {
     public class UserService : IUserService
     {

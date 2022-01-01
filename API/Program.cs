@@ -1,9 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Dashly.API.Helpers;
-using Dashly.API.Repositories.Data;
-using Microsoft.Extensions.Configuration;
 
 namespace Dashly.API
 {

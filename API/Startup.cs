@@ -1,6 +1,5 @@
 using Dashly.API.Data.Entity;
-using Dashly.API.Helpers;
-using Dashly.API.Repositories.Data;
+using Dashly.API.Feature.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,7 +22,6 @@ namespace Dashly.API
         {
             Configuration = configuration;
             ApplyDBMigration();
-
         }
 
         private void ApplyDBMigration()
@@ -97,7 +95,6 @@ namespace Dashly.API
                     services.AddDbContext<DashlyContext, PostgresDbContext>();
                     break;
             }
-
 
             services.RegisterServices();
 

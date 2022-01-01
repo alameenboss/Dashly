@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.Feature.Contacts.Models
+﻿namespace Dashly.API.Feature.Contacts.Data.Entity
 {
     public class Contact
     {

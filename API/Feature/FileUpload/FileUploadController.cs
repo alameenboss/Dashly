@@ -1,19 +1,20 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-namespace FileUpload.API.Controllers
+
+namespace Dashly.API.Feature.FileUpload
 {
     [Route("api/[controller]")]
     [ApiController]
     public class FileUploadController : ControllerBase
     {
         private readonly IConfiguration Configuration;
+
         public FileUploadController(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -48,7 +49,7 @@ namespace FileUpload.API.Controllers
                     }
                 }
 
-                return result ;
+                return result;
             }
             catch (Exception ex)
             {

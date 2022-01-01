@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Dashly.API.Models.Request
+namespace Dashly.API.Feature.Authentication.Request
 {
     public class AuthenticateRequest
     {

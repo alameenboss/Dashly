@@ -1,15 +1,13 @@
-﻿using Dashly.API.Helpers;
-using Dashly.API.Repositories.Data;
-using Dashly.API.Repositories.Data.Entity.Notes;
-using Dashly.API.Repositories.Interface;
+﻿using Dashly.API.Data.Entity;
+using Dashly.API.Feature.Notes.Data.Entity;
+using Dashly.API.Helpers;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Repositories
+namespace Dashly.API.Feature.Notes.Data.Repository
 {
-
     public class NoteCategoryRepository : INoteCategoryRepository
     {
         private readonly DashlyContext _dbContext;
@@ -23,18 +21,18 @@ namespace Dashly.API.Repositories
 
         public async Task<IEnumerable<NoteCategory>> GetAll()
         {
-            return 
+            return
                 _dbContext.NoteCategories
                  .Include(e => e.Notes)
                 .Include(e => e.Categories)
                 .AsEnumerable()
                 .Where(e => e.NoteCategoryId == null)
-                .ToList() ;
+                .ToList();
         }
 
         public async Task<NoteCategory> GetById(int id)
         {
-            return await 
+            return await
                 _dbContext.NoteCategories
                 .Include(x => x.Categories)
                 .Where(x => x.Id == id).FirstOrDefaultAsync();
@@ -61,7 +59,6 @@ namespace Dashly.API.Repositories
             return true;
         }
 
-
         public async Task<bool> Delete(int id)
         {
             var note = await _dbContext.NoteCategories.FirstOrDefaultAsync(x => x.Id == id);
@@ -77,6 +74,5 @@ namespace Dashly.API.Repositories
             await _dbContext.SaveChangesAsync();
             return true;
         }
-
     }
 }

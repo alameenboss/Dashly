@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.ConnectedServices.GitHub.Models
+﻿namespace Dashly.API.Feature.Github.DTO
 {
     public class License
     {
@@ -8,5 +8,4 @@
         public string url { get; set; }
         public string node_id { get; set; }
     }
-
 }

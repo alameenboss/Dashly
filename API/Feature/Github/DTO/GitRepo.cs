@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dashly.API.ConnectedServices.GitHub.Models
+namespace Dashly.API.Feature.Github.DTO
 {
     public class GitRepo
     {
@@ -82,5 +82,4 @@ namespace Dashly.API.ConnectedServices.GitHub.Models
         public int watchers { get; set; }
         public string default_branch { get; set; }
     }
-
 }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Dashly.API.Feature.OAuthIntegrations.Data;
-using Dashly.API.Feature.OAuthIntegrations.Models;
+using Dashly.API.Feature.OAuthIntegrations.Data.Entity;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
@@ -28,16 +28,15 @@ namespace Dashly.API.Feature.OAuthIntegrations
         }
 
         [HttpPut("{name}")]
-        public async Task<bool> UpdateOAuthCode(string name,OAuthIntegration oAuthIntegration)
+        public async Task<bool> UpdateOAuthCode(string name, OAuthIntegration oAuthIntegration)
         {
             return await _oAuthRepository.UpdateOAuthCode(name, oAuthIntegration.Code);
         }
 
-
         [HttpPost]
         public async Task<bool> AddOAuthApp(OAuthIntegration oAuthIntegration)
         {
-            return await _oAuthRepository.AddOAuthApp(oAuthIntegration.Name, oAuthIntegration.TokenUrl,oAuthIntegration.AppId,oAuthIntegration.ClientId,oAuthIntegration.Secret);
+            return await _oAuthRepository.AddOAuthApp(oAuthIntegration.Name, oAuthIntegration.TokenUrl, oAuthIntegration.AppId, oAuthIntegration.ClientId, oAuthIntegration.Secret);
         }
 
         [HttpGet("getclientid/{name}")]

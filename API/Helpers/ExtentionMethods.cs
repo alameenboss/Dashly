@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Dashly.API.Feature.UserManagement.Data.Entity;
+using System.Collections.Generic;
 using System.Linq;
-using Dashly.API.Repositories.Data.Entity;
 
 namespace Dashly.API.Helpers
 {

@@ -3,7 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Middleware
+namespace Dashly.API.Feature.Authentication.Middleware
 {
     public class ApiKeyMiddleware
     {

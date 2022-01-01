@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Dashly.API.Feature.Documents.Models
+﻿namespace Dashly.API.Feature.Documents.Data.Entity
 {
     public class Document
     {

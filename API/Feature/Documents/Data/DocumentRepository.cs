@@ -1,9 +1,8 @@
-﻿using Dashly.API.Feature.Documents.Models;
+﻿using Dashly.API.Data.Entity;
+using Dashly.API.Feature.Documents.Data.Entity;
 using Dashly.API.Helpers;
-using Dashly.API.Repositories.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Dashly.API.Feature.Documents.Data

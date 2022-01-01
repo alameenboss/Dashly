@@ -1,12 +1,13 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Dashly.API.Repositories;
-using Dashly.API.Repositories.Interface;
-using Dashly.API.Services;
-using Dashly.API.ConnectedServices.GitHub;
-using Dashly.API.Feature.Documents.Data;
+﻿using Dashly.API.Feature.Documents.Data;
+using Dashly.API.Feature.Github.Services;
+using Dashly.API.Feature.Notes.Data.Repository;
 using Dashly.API.Feature.OAuthIntegrations.Data;
+using Dashly.API.Feature.UserManagement.Services;
+using Dashly.API.Feature.WebApps.Data.Repository;
+using Dashly.API.Helpers;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Dashly.API.Helpers
+namespace Dashly.API
 {
     public static class ServiceExtension
     {

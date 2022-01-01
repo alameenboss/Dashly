@@ -1,14 +1,12 @@
-﻿using Dashly.API.Feature.Contacts.Models;
+﻿using Dashly.API.Data.Entity;
+using Dashly.API.Feature.Contacts.Data.Entity;
 using Dashly.API.Helpers;
-using Dashly.API.Repositories.Data;
-using Dashly.API.Repositories.Data.Entity;
-using Dashly.API.Repositories.Interface;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Repositories
+namespace Dashly.API.Feature.Contacts.Data
 {
     public class ContactRepository : IContactRepository
     {
@@ -45,7 +43,6 @@ namespace Dashly.API.Repositories
 
         public async Task<bool> Update(Contact model, int id)
         {
-
             var oldContact = _dbContext.Contacts
                     .Where(p => p.Id == model.Id)
                     .SingleOrDefault();
@@ -58,7 +55,7 @@ namespace Dashly.API.Repositories
 
             return true;
         }
-        
+
         public async Task<bool> Delete(int id)
         {
             var Contact = await _dbContext.Contacts.FirstOrDefaultAsync(x => x.Id == id);

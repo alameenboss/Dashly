@@ -1,9 +1,8 @@
 ﻿using AutoMapper;
-using Dashly.API.DataImport;
-using Dashly.API.Feature.Contacts.Models;
-using Dashly.API.Models.Contacts.Request;
-using Dashly.API.Repositories.Data.Entity;
-using Dashly.API.Repositories.Interface;
+using Dashly.API.Feature.Contacts.Data;
+using Dashly.API.Feature.Contacts.Data.Entity;
+using Dashly.API.Feature.Contacts.DTO.Request;
+using Dashly.API.Feature.DataImport;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Controllers
+namespace Dashly.API.Feature.Contacts
 {
     [Route("api/[controller]")]
     [ApiController]

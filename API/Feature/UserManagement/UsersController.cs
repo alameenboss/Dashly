@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Dashly.API.Feature.Authentication.Request;
+using Dashly.API.Feature.UserManagement.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Dashly.API.Models.Request;
-using Dashly.API.Services;
 
-namespace Dashly.API.Controllers
+namespace Dashly.API.Feature.UserManagement
 {
     [Authorize]
     [ApiController]

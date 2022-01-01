@@ -1,18 +1,17 @@
-﻿using Dashly.API.Helpers;
-using Dashly.API.Repositories.Data;
-using Dashly.API.Repositories.Data.Entity;
-using Dashly.API.Repositories.Interface;
+﻿using Dashly.API.Feature.DataImport;
+using Dashly.API.Feature.WebApps.Data.Entity;
+using Dashly.API.Feature.WebApps.Data.Repository;
+using Dashly.API.Feature.WebApps.DTO.Request;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
-namespace Dashly.API.DataImport
+namespace Dashly.API.Feature.WebApps
 {
     public class ImportWebapp : IDataImport
     {
         private readonly IWebappRepository _webappRepository;
+
         public ImportWebapp(IWebappRepository webappRepository)
         {
             _webappRepository = webappRepository;
@@ -51,7 +50,6 @@ namespace Dashly.API.DataImport
             {
                 new Attachment() { Name = item.fullImageUrl, IsActive = true, Type = "FullImage", IsPrimary = true },
                 new Attachment() { Name = item.thumbnailUrl, IsActive = true, Type = "Thumbnail", IsPrimary = true }
-
             };
         }
     }

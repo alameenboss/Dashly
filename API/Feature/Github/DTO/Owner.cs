@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.ConnectedServices.GitHub.Models
+﻿namespace Dashly.API.Feature.Github.DTO
 {
     public class Owner
     {
@@ -21,5 +21,4 @@
         public string type { get; set; }
         public bool site_admin { get; set; }
     }
-
 }
