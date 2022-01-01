@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from 'src/app/shared/material.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { TextEditorModule } from 'src/app/shared/text-editor.module';
+import { AddEditCategoryComponent } from './components/add-edit-category/add-edit-category.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { TextEditorModule } from 'src/app/shared/text-editor.module';
     NoteMainComponent,
     NoteSidebarComponent,
     NoteEditorComponent,
-    NoteViewerComponent
+    NoteViewerComponent,
+    AddEditCategoryComponent
   ],
   imports: [
     CommonModule,

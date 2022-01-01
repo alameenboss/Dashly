@@ -1,3 +1,4 @@
+using Dashly.API.Data.Entity;
 using Dashly.API.Helpers;
 using Dashly.API.Repositories.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -21,10 +22,27 @@ namespace Dashly.API
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            using (var client = new DashlyContext(Configuration))
+            ApplyDBMigration();
+
+        }
+
+        private void ApplyDBMigration()
+        {
+            switch (Configuration["DatabaseProvider"])
             {
-                //client.Database.EnsureCreated();
-                client.Database.Migrate();
+                case "MsSql":
+                    using (var client = new MsSqlDbContext(Configuration))
+                        client.Database.Migrate();
+                    break;
+
+                case "SQLite":
+                    using (var client = new SQLiteDbContext(Configuration))
+                        client.Database.Migrate();
+                    break;
+
+                case "PostgreSql":
+                    //
+                    break;
             }
         }
 
@@ -65,7 +83,21 @@ namespace Dashly.API
             });
             //JWT Authentication -- End
 
-            services.AddEntityFrameworkSqlite().AddDbContext<DashlyContext>();
+            switch (Configuration["DatabaseProvider"])
+            {
+                case "MsSql":
+                    services.AddDbContext<DashlyContext, MsSqlDbContext>();
+                    break;
+
+                case "SQLite":
+                    services.AddEntityFrameworkSqlite().AddDbContext<DashlyContext, SQLiteDbContext>();
+                    break;
+
+                case "PostgreSql":
+                    services.AddDbContext<DashlyContext, PostgresDbContext>();
+                    break;
+            }
+
 
             services.RegisterServices();
 
@@ -102,7 +134,7 @@ namespace Dashly.API
             {
                 app.UseDeveloperExceptionPage();
             }
-            
+
             app.UseOpenApi();
             app.UseSwaggerUi3();
 

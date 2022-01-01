@@ -8,15 +8,17 @@ using Dashly.API.Repositories.Data.Entity.Notes;
 using Dashly.API.Feature.Documents.Models;
 using Dashly.API.Feature.OAuthIntegrations.Models;
 using Dashly.API.Feature.Contacts.Models;
+using System.Reflection;
+using System.Linq;
 
 namespace Dashly.API.Repositories.Data
 {
-    public class DashlyContext : DbContext
+    public abstract class DashlyContext : DbContext
     {
-        private readonly IConfiguration Configuration;
+        protected  readonly IConfiguration Configuration;
         public DashlyContext(IConfiguration configuration)
         {
-            Configuration = configuration;
+           Configuration = configuration;
         }
 
         public DbSet<Webapp> Webapps { get; set; }
@@ -37,14 +39,27 @@ namespace Dashly.API.Repositories.Data
 
         public DbSet<OAuthIntegration> OAuthIntegrations { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            //optionsBuilder.UseSqlite("Data Source=DashlyDB.db;");
+        //protected void ApplyConfiguration(ModelBuilder modelBuilder, string[] namespaces)
+        //{
+        //    var methodInfo = (typeof(ModelBuilder).GetMethods()).Single((e =>
+        //        e.Name == "ApplyConfiguration" &&
+        //        e.ContainsGenericParameters &&
+        //        e.GetParameters().SingleOrDefault()?.ParameterType.GetGenericTypeDefinition() == typeof(IEntityTypeConfiguration<>)));
 
-            var dataSource = Path.Combine(Configuration["AppConfig:DbPath"], "DashlyDB.db");
-            optionsBuilder
-                .UseSqlite($"Data Source={dataSource};");
-        }
+        //    foreach (var configType in typeof(DashlyContext).GetTypeInfo().Assembly.GetTypes()
+
+        //        .Where(t => t.Namespace != null &&
+        //                    namespaces.Any(n => n == t.Namespace) &&
+        //                    t.GetInterfaces().Any(i => i.IsGenericType &&
+        //                                               i.GetGenericTypeDefinition() == typeof(IEntityTypeConfiguration<>))))
+        //    {
+        //        var type = configType.GetInterfaces().First();
+        //        methodInfo.MakeGenericMethod(type.GenericTypeArguments[0]).Invoke(modelBuilder, new[]
+        //        {
+        //    Activator.CreateInstance(configType)
+        //});
+        //    }
+        //}
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

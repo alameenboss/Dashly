@@ -7,6 +7,8 @@ import { Note } from '../../models/note.model';
 import { NoteCategoryService } from '../../services/note-category.service';
 import { CommonService } from "../../services/CommonService";
 import { NotesService } from '../../services/notes.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AddEditCategoryComponent } from '../add-edit-category/add-edit-category.component';
 
 @Component({
   selector: 'app-note-sidebar',
@@ -20,6 +22,7 @@ export class NoteSidebarComponent implements OnInit, OnDestroy {
 
   constructor(
     public noteCategoryService: NoteCategoryService,
+    public dialog: MatDialog,
     public notesService: NotesService,
     public commonService: CommonService,
     public router: Router,
@@ -48,6 +51,24 @@ export class NoteSidebarComponent implements OnInit, OnDestroy {
   
   onCategorySelected(category: NoteCategory) {
     this.router.navigate([category.id, 'add'], { relativeTo: this.route });
+  }
+  onCategoryDeleted(category: NoteCategory){
+    this.noteCategoryService.delete(category.id).subscribe(res=>{
+      this.commonService.sendUpdate('Category Updated');
+    })
+  }
+
+  openAddCategoryDialog() {
+    let dialogRef = this.dialog.open(AddEditCategoryComponent);
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.noteCategoryService.insert({
+          name: res
+        }).subscribe(categories => {
+          this.commonService.sendUpdate('Category Updated');
+        })
+      }
+    });
   }
 
   deleteNote(note: Note) {

@@ -1,6 +1,17 @@
-<ng-container *ngTemplateOutlet="replyThread; context: { $implicit: notecategories }">
+<ng-container *ngIf="notecategories.length > 0;else other_content">
+    <ng-container *ngTemplateOutlet="replyThread; context: { $implicit: notecategories }">
 
+    </ng-container>
 </ng-container>
+<ng-template #other_content>
+    <div class="content-center" >
+        <span (click)="openAddCategoryDialog()">
+            <mat-icon>create_new_folder</mat-icon>Add Category
+        </span>
+        
+    </div>
+    
+</ng-template>
 
 
 <ng-template #replyThread let-category>
@@ -12,7 +23,7 @@
                 <span class="actions">
                     <mat-icon>create_new_folder</mat-icon>
                     <mat-icon>edit</mat-icon>
-                    <mat-icon>delete</mat-icon>
+                    <mat-icon (click)="onCategoryDeleted(cat)">delete</mat-icon>
                 </span>
             </span>
             <ul *ngIf="cat.notes">
