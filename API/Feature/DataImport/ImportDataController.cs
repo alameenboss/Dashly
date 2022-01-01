@@ -25,9 +25,7 @@ namespace Dashly.API.Controllers
         public async Task<bool> Upload(string type, IFormFile file)
         {
             var dataImpoter = new Dictionary<string, IDataImport>();
-            dataImpoter.Add("webapp", new ImportWebapp(_context));
             dataImpoter.Add("notes", new ImportNote(_context));
-            dataImpoter.Add("contact", new ImportContact(_context));
             using (var ms = new MemoryStream())
             {
                 file.CopyTo(ms);

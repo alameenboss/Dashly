@@ -190,5 +190,12 @@ namespace Dashly.API.Repositories
             await _dbContext.SaveChangesAsync();
             return true;
         }
+
+        public async Task<bool> Import(IEnumerable<Webapp> entities)
+        {
+            await _dbContext.AddRangeAsync(entities);
+            await _dbContext.SaveChangesAsync();
+            return true;
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Dashly.API.Feature.Contacts.Models;
-using Dashly.API.Repositories.Data;
+using Dashly.API.Repositories.Interface;
 using MixERP.Net.VCards;
-using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,27 +9,28 @@ namespace Dashly.API.DataImport
 {
     public class ImportContact : IDataImport
     {
-        private DashlyContext _context;
-        public ImportContact(DashlyContext context)
+        private readonly IContactRepository _contactRepository;
+
+        public ImportContact(IContactRepository contactRepository)
         {
-            _context = context;
+            _contactRepository = contactRepository;
         }
         public async Task<bool> ExecuteAsync(string data)
         {
             var vcards = Deserializer.GetVCards(data).ToList();
+            var contacts = new List<Contact>();
 
             vcards.ForEach(vcard =>
             {
-                var contact = new Contact()
+                contacts.Add(new Contact()
                 {
                     FirstName = vcard.FirstName,
                     LastName = vcard.LastName,
                     Number = vcard?.Telephones?.FirstOrDefault()?.Number,
-                };
-                //_context.Add(contact);
+                });
             });
 
-            //_context.SaveChanges();
+            await _contactRepository.Import(contacts);
 
             return true;
         }

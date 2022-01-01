@@ -13,5 +13,6 @@ namespace Dashly.API.Repositories.Interface
         Task<bool> Delete(int id);
         Task<bool> DeleteAll();
         Task<bool> AddAttachment(int id, Attachment attachment);
+        Task<bool> Import(IEnumerable<Webapp> entities);
     }
 }

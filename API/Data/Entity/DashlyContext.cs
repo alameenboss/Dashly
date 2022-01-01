@@ -36,7 +36,7 @@ namespace Dashly.API.Repositories.Data
 
         public DbSet<Document> Documents { get; set; }
 
-
+        public DbSet<Contact> Contacts { get; set; }
         public DbSet<OAuthIntegration> OAuthIntegrations { get; set; }
 
         //protected void ApplyConfiguration(ModelBuilder modelBuilder, string[] namespaces)

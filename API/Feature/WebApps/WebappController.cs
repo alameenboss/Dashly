@@ -5,6 +5,16 @@ using System.Threading.Tasks;
 using Dashly.API.Models.Webapps.Request;
 using Dashly.API.Repositories.Data.Entity;
 using Dashly.API.Repositories.Interface;
+using Dashly.API.DataImport;
+using Dashly.API.Repositories.Data;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Dashly.API.Controllers
 {
@@ -14,11 +24,13 @@ namespace Dashly.API.Controllers
     {
         private readonly IWebappRepository _webappRepository;
         private readonly IMapper _mapper;
+        private readonly IDataImport _dataImport;
 
         public WebappController(IWebappRepository webappRepository, IMapper mapper)
         {
             _webappRepository = webappRepository;
             _mapper = mapper;
+            _dataImport = new ImportWebapp(_webappRepository);
         }
 
         [HttpGet]
@@ -71,6 +83,20 @@ namespace Dashly.API.Controllers
         {
             await _webappRepository.DeleteAll();
             return Ok(new { success = "Success" });
+        }
+
+        [HttpPut("import"), DisableRequestSizeLimit]
+        public async Task<bool> Import(IFormFile file)
+        {
+            using (var ms = new MemoryStream())
+            {
+                file.CopyTo(ms);
+                var fileBytes = ms.ToArray();
+                string data = Encoding.UTF8.GetString(fileBytes);
+                await _dataImport.ExecuteAsync(data);
+            }
+
+            return true;
         }
     }
 }

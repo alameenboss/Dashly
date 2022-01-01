@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Dashly.API.Feature.Contacts.Models
+﻿namespace Dashly.API.Feature.Contacts.Models
 {
     public class Contact
     {

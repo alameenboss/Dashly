@@ -1,6 +1,7 @@
 ﻿using Dashly.API.Helpers;
 using Dashly.API.Repositories.Data;
 using Dashly.API.Repositories.Data.Entity;
+using Dashly.API.Repositories.Interface;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,18 +12,20 @@ namespace Dashly.API.DataImport
 {
     public class ImportWebapp : IDataImport
     {
-        private DashlyContext _context;
-        public ImportWebapp(DashlyContext context)
+        private readonly IWebappRepository _webappRepository;
+        public ImportWebapp(IWebappRepository webappRepository)
         {
-            _context = context;
+            _webappRepository = webappRepository;
         }
+
         public async Task<bool> ExecuteAsync(string data)
         {
             var result = JsonConvert.DeserializeObject<List<WebappData>>(data);
-            
+
+            var model = new List<Webapp>();
             result.ForEach(item =>
             {
-                _context.Add(new Webapp()
+                model.Add(new Webapp()
                 {
                     Name = item.name,
                     HostedLocationUrl = item.hostedLocationUrl,
@@ -32,9 +35,7 @@ namespace Dashly.API.DataImport
                 });
             });
 
-            _context.SaveChanges();
-
-            return true;
+            return await _webappRepository.Import(model);
         }
 
         private static List<Tag> PrepareTags(WebappData item)
