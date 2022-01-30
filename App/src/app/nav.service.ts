@@ -60,7 +60,7 @@ export class NavService {
       { displayName: 'Family Hierarchy', iconName: 'people', route: '/family' },
       { displayName: 'Passwords', iconName: 'pin', route: '/password' },
       { displayName: 'Pay Slips', iconName: 'request_quote', route: '/payslips' },
-      { displayName: 'Video', iconName: 'video_library', route: '/video' },
+      { displayName: 'Video', iconName: 'video_library', route: '/video-player' },
       { displayName: 'Audio', iconName: 'audiotrack', route: '/audio' },
       { displayName: 'Bookmarks', iconName: 'bookmarks', route: '/bookmarks' },
       { displayName: 'feedback', iconName: 'feedback', route: '/feedback' }

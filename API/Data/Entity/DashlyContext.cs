@@ -1,4 +1,5 @@
-﻿using Dashly.API.Feature.Contacts.Data.Entity;
+﻿using Dashly.API.Feature.Bookmarks.Data.Entity;
+using Dashly.API.Feature.Contacts.Data.Entity;
 using Dashly.API.Feature.Documents.Data.Entity;
 using Dashly.API.Feature.Github.Data.Entity;
 using Dashly.API.Feature.Notes.Data.Entity;
@@ -19,22 +20,41 @@ namespace Dashly.API.Data.Entity
             Configuration = configuration;
         }
 
+        #region "Apps"
         public DbSet<Webapp> Webapps { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Attachment> Attachments { get; set; }
+        #endregion
 
+        #region "Projetcs"
         public DbSet<GitHubRepo> GitHubRepos { get; set; }
+        #endregion
 
+        #region "Authentication"
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
+        #endregion
 
+        #region "Notes"
         public DbSet<Note> Notes { get; set; }
         public DbSet<NoteCategory> NoteCategories { get; set; }
+        #endregion
 
+        #region "Documents"
         public DbSet<Document> Documents { get; set; }
+        #endregion
 
+        #region "Bookmarks"
+        public DbSet<Bookmark> Bookmarks { get; set; }
+        #endregion
+
+        #region "Contacts"
         public DbSet<Contact> Contacts { get; set; }
+        #endregion
+
+        #region "OAuthIntegrations"
         public DbSet<OAuthIntegration> OAuthIntegrations { get; set; }
+        #endregion
 
         //protected void ApplyConfiguration(ModelBuilder modelBuilder, string[] namespaces)
         //{

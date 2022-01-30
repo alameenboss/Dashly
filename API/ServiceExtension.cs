@@ -1,4 +1,5 @@
-﻿using Dashly.API.Feature.Documents.Data;
+﻿using Dashly.API.Feature.Bookmarks.Data;
+using Dashly.API.Feature.Documents.Data;
 using Dashly.API.Feature.Github.Services;
 using Dashly.API.Feature.Notes.Data.Repository;
 using Dashly.API.Feature.OAuthIntegrations.Data;
@@ -23,6 +24,9 @@ namespace Dashly.API
             services.AddScoped<IDocumentRepository, DocumentRepository>();
 
             services.AddScoped<IOAuthRepository, OAuthRepository>();
+
+
+            services.AddScoped<IBookmarkRepository, BookmarkRepository>();
         }
     }
 }

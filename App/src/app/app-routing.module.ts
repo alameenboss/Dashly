@@ -110,6 +110,14 @@ const routes: Routes = [
     loadChildren: () => import('src/app/features/task-board/task-board.module').then(m => m.TaskBoardModule)
   },
   {
+    path: 'video-player',
+    data: {
+      breadcrumb: 'video-player'
+    },    
+    component: MainNavComponent,
+    loadChildren: () => import('src/app/features/video-player/video-player.module').then(m => m.VideoPlayerModule)
+  },
+  {
     path: 'oauth/signin', component: SignInComponent
   },
   { path: '**', redirectTo: '' }
