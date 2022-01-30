@@ -4,6 +4,7 @@ using Dashly.API.Feature.Documents.Data.Entity;
 using Dashly.API.Feature.Github.Data.Entity;
 using Dashly.API.Feature.Notes.Data.Entity;
 using Dashly.API.Feature.OAuthIntegrations.Data.Entity;
+using Dashly.API.Feature.TaskModule.Data.Entity;
 using Dashly.API.Feature.UserManagement.Data.Entity;
 using Dashly.API.Feature.WebApps.Data.Entity;
 using Microsoft.EntityFrameworkCore;
@@ -22,8 +23,6 @@ namespace Dashly.API.Data.Entity
 
         #region "Apps"
         public DbSet<Webapp> Webapps { get; set; }
-        public DbSet<Tag> Tags { get; set; }
-        public DbSet<Attachment> Attachments { get; set; }
         #endregion
 
         #region "Projetcs"
@@ -55,6 +54,15 @@ namespace Dashly.API.Data.Entity
         #region "OAuthIntegrations"
         public DbSet<OAuthIntegration> OAuthIntegrations { get; set; }
         #endregion
+
+        #region "Tasks"
+        public DbSet<Tasks> Tasks { get; set; }
+        public DbSet<Board> Boards { get; set; }
+        #endregion
+
+
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<Attachment> Attachments { get; set; }
 
         //protected void ApplyConfiguration(ModelBuilder modelBuilder, string[] namespaces)
         //{
