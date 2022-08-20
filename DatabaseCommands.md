@@ -1,3 +1,8 @@
+- Set the Startup Project as **Alameen.Dashly.API**
+- Goto Tools-> Nuget Package Manager -> Package Manager Console
+- In the Package Manager Console Window Set the Default Project to **Alameen.Dashly.Repository**
+- Enter below commands based on the configuration selected
+
 
 ## Ms Sql Server
 

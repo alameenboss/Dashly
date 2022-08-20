@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Folder Include="logs\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Alameen.Dashly.Common\Alameen.Dashly.Common.csproj" />
+	  <ProjectReference Include="..\Alameen.Dashly.Core\Alameen.Dashly.Core.csproj" />
+	  <ProjectReference Include="..\Alameen.Dashly.Integration.GitHub\Alameen.Dashly.Integration.GitHub.csproj" />
+	  <ProjectReference Include="..\Alameen.Dashly.Repository\Alameen.Dashly.Repository.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="HtmlAgilityPack" Version="1.11.43" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.11" />
+		<PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
+		<PackageReference Include="NSwag.AspNetCore" Version="13.16.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.18" />
+		
+	</ItemGroup>
+</Project>
