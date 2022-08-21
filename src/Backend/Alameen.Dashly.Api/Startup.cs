@@ -22,28 +22,10 @@ namespace Dashly.API
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            ApplyDBMigration();
+            
         }
 
-        private void ApplyDBMigration()
-        {
-            switch (Configuration["DatabaseProvider"])
-            {
-                case "MsSql":
-                    using (var client = new MsSqlDbContext(Configuration))
-                        client.Database.Migrate();
-                    break;
-
-                case "SQLite":
-                    using (var client = new SQLiteDbContext(Configuration))
-                        client.Database.Migrate();
-                    break;
-
-                case "PostgreSql":
-                    //
-                    break;
-            }
-        }
+        
 
         public IConfiguration Configuration { get; }
 
@@ -154,18 +136,14 @@ namespace Dashly.API
             //For api key authentication
             //app.UseMiddleware<ApiKeyMiddleware>();
 
-            var filesStoragePath = Configuration["AppConfig:FilesStoragePath"];
-            if (!Directory.Exists(filesStoragePath))
-            {
-                Directory.CreateDirectory(filesStoragePath);
-            }
+
 
             app.UseStaticFiles(new StaticFileOptions()
             {
-                
-                FileProvider = new PhysicalFileProvider(filesStoragePath),
+                FileProvider = new PhysicalFileProvider(Configuration["AppConfig:FilesStoragePath"]),
                 RequestPath = new PathString("/Files")
             });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
