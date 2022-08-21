@@ -1,23 +1,24 @@
-.container{
+.container {
   display: flex;
   height: 100%;
-  overflow:scroll;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  background-color: white;
   .columns {
-    border: 1px dashed black;
     padding: 5px;
-    margin: 5px;
     flex: 1 0 220px;
-    background-color: lightgrey;
+    border: 1px solid black;
+    margin: 0 5px 0 0;
+    
+    h4 {
+      margin: 5px 0px;
+      border-bottom: 2px dashed black;
+    }
   }
-
 }
-
-
 .drop-zone {
-  border: solid 1px #ccc;
   min-height: 60px;
-  border-radius: 4px;
-  height: 70vh;
+  height: calc(100vh - 150px);
   overflow-y: scroll;
   overflow-x: unset;
 }
@@ -25,8 +26,8 @@
 .card {
   padding: 5px;
   margin: 5px;
-  border-bottom: solid 1px #ccc;
-  border-left: solid 5px green;
+  border: solid 1px #ccc;
+  border-left: solid 5px rgba(79, 233, 79, 0.781);
   cursor: move;
   background: white;
   min-height: 80px;
@@ -47,10 +48,6 @@
 .cdk-drag-animating {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
-
-// .card:last-child {
-//   border: none;
-// }
 
 .drop-zone.cdk-drop-list-dragging .card:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);

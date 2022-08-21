@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { FileElement, FileExplorerService } from '../../services/file-explorer.service';
 
@@ -7,28 +7,33 @@ import { FileElement, FileExplorerService } from '../../services/file-explorer.s
   templateUrl: './file-explorer-main.component.html',
   styleUrls: ['./file-explorer-main.component.scss']
 })
-export class FileExplorerMainComponent implements OnInit {
+export class FileExplorerMainComponent implements OnInit, OnDestroy {
 
   public fileElements: Observable<FileElement[]>;
 
-  constructor(public fileExplorerService: FileExplorerService) {}
+  constructor(public fileExplorerService: FileExplorerService) { }
+
+  ngOnDestroy(): void {
+    this.fileExplorerService.clear();
+    this.updateFileElementQuery();
+  }
 
   currentRoot: FileElement;
   currentPath: string;
   canNavigateUp = false;
 
   ngOnInit() {
-    const folderA = this.fileExplorerService.add({ name: 'Folder A', isFolder: true, parent: 'root' });
-    this.fileExplorerService.add({ name: 'Folder B', isFolder: true, parent: 'root' });
-    this.fileExplorerService.add({ name: 'Folder C', isFolder: true, parent: folderA.id });
-    this.fileExplorerService.add({ name: 'File A', isFolder: false, parent: 'root' });
-    this.fileExplorerService.add({ name: 'File B', isFolder: false, parent: 'root' });
+    this.fileExplorerService.getRootDirectories().subscribe((res: any[]) => {
+      res?.forEach(dir => {
+        this.fileExplorerService.add({ name: dir.replace("\\","") , itemType: 'drive', parent: 'root' })
+      });
+      this.updateFileElementQuery();
+    })
 
-    this.updateFileElementQuery();
   }
 
   addFolder(folder: { name: string }) {
-    this.fileExplorerService.add({ isFolder: true, name: folder.name, parent: this.currentRoot ? this.currentRoot.id : 'root' });
+    this.fileExplorerService.add({ itemType: 'folder', name: folder.name, parent: this.currentRoot ? this.currentRoot.id : 'root' });
     this.updateFileElementQuery();
   }
 
@@ -41,6 +46,18 @@ export class FileExplorerMainComponent implements OnInit {
     this.currentRoot = element;
     this.updateFileElementQuery();
     this.currentPath = this.pushToPath(this.currentPath, element.name);
+    console.log(element)
+    this.fileExplorerService.getFiles(this.currentPath).subscribe((res:any)=>{
+      console.log(res)
+      res.folders?.forEach(folder => {
+        this.fileExplorerService.add({ name: folder , itemType: 'folder', parent: element.id })
+      });
+      res.files?.forEach(file => {
+        this.fileExplorerService.add({ name: file , itemType: 'file', parent: element.id })
+      });
+      
+      this.updateFileElementQuery();
+    })
     this.canNavigateUp = true;
   }
 
@@ -67,7 +84,8 @@ export class FileExplorerMainComponent implements OnInit {
   }
 
   updateFileElementQuery() {
-    this.fileElements = this.fileExplorerService.queryInFolder(this.currentRoot ? this.currentRoot.id : 'root');
+    this.fileElements = this.fileExplorerService
+      .queryInFolder(this.currentRoot ? this.currentRoot.id : 'root');
   }
 
   pushToPath(path: string, folderName: string) {

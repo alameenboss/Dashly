@@ -34,7 +34,7 @@ export class FileExplorerComponent implements OnInit {
   }
 
   navigate(element: FileElement) {
-    if (element.isFolder) {
+    if (element.itemType == 'folder' || element.itemType == 'drive') {
       this.navigatedDown.emit(element);
     }
   }

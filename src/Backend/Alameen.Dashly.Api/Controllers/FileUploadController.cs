@@ -29,6 +29,11 @@ namespace Dashly.API.Feature.FileUpload
                 var folderName = Path.Combine("Images");
                 var pathToSave = Path.Combine(Configuration["AppConfig:FilesStoragePath"], folderName);
 
+                if (!Directory.Exists(pathToSave))
+                {
+                    Directory.CreateDirectory(pathToSave);
+                }
+
                 if (files.Any(f => f.Length == 0))
                 {
                     return BadRequest();

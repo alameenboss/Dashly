@@ -1,13 +1,9 @@
 .container {
   position: absolute;
-  top: 30px;
-  bottom: 30px;
+  top: 64px;
+  bottom: 0;
   left: 0;
   right: 0;
-}
-.mat-toolbar-row,
-.mat-toolbar-single-row {
-  height: 30px;
 }
 .sidenav {
   display: flex;
@@ -16,30 +12,6 @@
   width: 200px;
 }
 
-.footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 30px !important;
-  ul {
-    list-style: none;
-    display: inline-flex;
-    justify-content: center;
-    width: 100%;
-    li {
-      margin-left: 20px;
-      a {
-        font-weight: 500;
-        color: #3e75ff;
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-  }
-}
 .content-container {
   padding: 8px;
 }

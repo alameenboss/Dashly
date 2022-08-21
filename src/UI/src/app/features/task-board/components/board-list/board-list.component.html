@@ -1,6 +1,6 @@
 <div cdkDropListGroup class="container">
     <div class="columns" *ngFor="let s of status">
-        <h2>{{s.name}} ( {{s.data.length}} )</h2>
+        <h4>{{s.name}} ( {{s.data.length}} )</h4>
         <div cdkDropList [cdkDropListData]="s.data" class="drop-zone" (cdkDropListDropped)="drop($event)">
             <div class="card" *ngFor="let item of s.data" cdkDrag>
                {{item}} 

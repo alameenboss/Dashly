@@ -7,14 +7,16 @@
   
   <div class="container" fxFlex fxLayout="row" fxLayoutAlign="space-between stretch">
     <div class="content" fxFlex fxLayout="row">
-      <mat-grid-list cols="8" rowHeight="100px" fxFlex>
+      <mat-grid-list cols="4" rowHeight="50px" fxFlex>
+        
         <mat-grid-tile *ngFor="let element of fileElements" class=file-or-folder>
           <span [matMenuTriggerFor]="rootMenu" [matMenuTriggerData]="{element: element}" #menuTrigger="matMenuTrigger"></span>
-          <div fxLayout="column" fxLayoutAlign="space-between center" (click)="navigate(element)" (contextmenu)="openMenu($event, menuTrigger)">
-            <mat-icon color="primary" class="file-or-folder-icon pointer" *ngIf="element.isFolder">folder</mat-icon>
-            <mat-icon color="primary" class="file-or-folder-icon pointer" *ngIf="!element.isFolder">insert_drive_file</mat-icon>
+            <div fxLayout="column" fxLayoutAlign="space-between center" (click)="navigate(element)" (contextmenu)="openMenu($event, menuTrigger)">
+              <mat-icon color="accent" class="file-or-folder-icon pointer" *ngIf="element.itemType == 'drive'">upload_file</mat-icon>
+              <mat-icon color="accent" class="file-or-folder-icon pointer" *ngIf="element.itemType == 'folder'">folder</mat-icon>
+              <mat-icon color="primary" class="file-or-folder-icon pointer" *ngIf="element.itemType == 'file'">insert_drive_file</mat-icon>
+            </div>
             <span>{{element.name}}</span>
-          </div>
         </mat-grid-tile>
       </mat-grid-list>
     </div>
@@ -40,7 +42,7 @@
   <mat-menu #moveToMenu="matMenu">
     <ng-template matMenuContent let-self="self">
       <ng-container *ngFor="let element of fileElements">
-        <button *ngIf="element.isFolder && element.id !== self.id" mat-menu-item (click)="moveElement(self, element)">{{element.name}}</button>
+        <button *ngIf="element.itemType == 'folder' && element.id !== self.id" mat-menu-item (click)="moveElement(self, element)">{{element.name}}</button>
       </ng-container>
     </ng-template>
   </mat-menu>

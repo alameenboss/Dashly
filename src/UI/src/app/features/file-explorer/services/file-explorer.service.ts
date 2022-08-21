@@ -1,15 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { v4 } from 'uuid';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FileExplorerService {
-
+  private querySubject: BehaviorSubject<FileElement[]>;
   private map = new Map<string, FileElement>();
-
-  constructor() {}
+  private filesUrl: string = environment.apiUrl + '/' + 'files';
+  constructor(private http: HttpClient) {}
 
   add(fileElement: FileElement) {
     fileElement.id = v4();
@@ -27,7 +29,11 @@ export class FileExplorerService {
     this.map.set(element.id, element);
   }
 
-  private querySubject: BehaviorSubject<FileElement[]>;
+  clear(){
+    this.map = new Map<string, FileElement>()
+    this.querySubject.next(null);
+  }
+  
   queryInFolder(folderId: string) {
     const result: FileElement[] = [];
     this.map.forEach(element => {
@@ -50,6 +56,14 @@ export class FileExplorerService {
   clone(element: FileElement) {
     return JSON.parse(JSON.stringify(element));
   }
+
+  getRootDirectories() {
+    return this.http.get(this.filesUrl+'/getdrives');
+  }
+
+  getFiles(path:string){
+    return this.http.get(this.filesUrl+'/GetFiles?path='+path);
+  }
 }
 
 
@@ -63,7 +77,7 @@ export interface IFileService {
 
 export class FileElement {
   id?: string;
-  isFolder: boolean;
+  itemType: string;
   name: string;
   parent: string;
 }

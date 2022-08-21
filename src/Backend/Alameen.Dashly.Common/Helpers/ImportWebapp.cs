@@ -8,6 +8,20 @@ namespace Dashly.API.Feature.WebApps
 {
     public class ImportWebapp : IDataImport<Webapp>
     {
+        internal class WebappData
+        {
+            public string name { get; set; }
+
+            public string hostedLocationUrl { get; set; }
+
+            public string fullImageUrl { get; set; }
+
+            public string thumbnailUrl { get; set; }
+
+            public List<string> tags { get; set; }
+
+        }
+
         public async Task<IEnumerable<Webapp>> ExecuteAsync(string data)
         {
             return await Task.Run(() =>
@@ -47,17 +61,5 @@ namespace Dashly.API.Feature.WebApps
         }
     }
 
-    internal class WebappData
-    {
-        public string name { get; set; }
-
-        public string hostedLocationUrl { get; set; }
-
-        public string fullImageUrl { get; set; }
-
-        public string thumbnailUrl { get; set; }
-
-        public List<string> tags { get; set; }
-
-    }
+    
 }

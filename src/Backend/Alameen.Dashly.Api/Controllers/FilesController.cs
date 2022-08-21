@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace Dashly.API.Feature.VideoManagement
 {
@@ -13,11 +15,11 @@ namespace Dashly.API.Feature.VideoManagement
         [HttpGet("GetDrives")]
         public IEnumerable<string> GetDrives()
         {
-            var allDrives = System.Environment.GetLogicalDrives();
+            var allDrives = Environment.GetLogicalDrives();
             var readyDrive = new List<string>();
             foreach (string drive in allDrives)
             {
-                var di = new System.IO.DriveInfo(drive);
+                var di = new DriveInfo(drive);
                 if (di.IsReady)
                 {
                     readyDrive.Add(di.Name);
@@ -32,12 +34,12 @@ namespace Dashly.API.Feature.VideoManagement
         {
             var model = new FileFolderModel();
 
-            model.Folders = System.IO.Directory.GetDirectories(path);
+            model.Folders = Directory.GetDirectories(path)?.ToList().Select(x=>x.Replace(path.ToString(), "")).ToList();
 
             // First, process all the files directly under this folder
             try
             {
-                model.Files = System.IO.Directory.GetFiles(path);
+                model.Files = Directory.GetFiles(path)?.ToList().Select(x => x.Replace(path.ToString(), "")).ToList();
             }
             // This is thrown if even one of the files requires permissions greater
             // than the application provides.
@@ -48,7 +50,7 @@ namespace Dashly.API.Feature.VideoManagement
                 // can try to elevate your privileges and access the file again.
                 //log.Add(e.Message);
             }
-            catch (System.IO.DirectoryNotFoundException e)
+            catch (DirectoryNotFoundException e)
             {
                 //log.Add(e.Message);
             }

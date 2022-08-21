@@ -5,13 +5,7 @@
   width: 100%;
 
   .mat-list-item.active {
-    background-color: rgb(142, 181, 255);
-  }
-  //
-  &:hover {
-    >.mat-list-item:not(.expanded) {
-      background-color: rgb(17, 177, 240) !important;
-    }
+    background-color: lightgray;
   }
 }
 
