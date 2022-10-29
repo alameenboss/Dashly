@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
   apikey: 'MySecretKey',
-  apiUrl: 'http://localhost:12001/api',
-  fileUrl: 'http://localhost:12001'
+  apiUrl: 'https://localhost:44341/api',
+  fileUrl: 'https://localhost:44341'
 };
