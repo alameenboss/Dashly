@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.Feature.Notes.Data.Entity
+﻿namespace Alameen.Dashly.Core
 {
     public class Note
     {

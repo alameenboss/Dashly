@@ -1,8 +1,8 @@
-﻿using Dashly.API.Feature.Notes.Data.Entity;
+﻿using Alameen.Dashly.Core;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.Notes.Data.Repository
+namespace Alameen.Dashly.Repository.Contract
 {
     public interface INoteCategoryRepository
     {

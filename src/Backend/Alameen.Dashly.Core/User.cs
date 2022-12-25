@@ -1,6 +1,4 @@
-﻿using Dashly.API.Data.Entity;
-
-namespace Dashly.API.Feature.UserManagement.Data.Entity
+﻿namespace Alameen.Dashly.Core
 {
     public class User : BaseEntity
     {

@@ -1,6 +1,8 @@
-﻿using AutoMapper;
-using Dashly.API.Feature.Bookmarks.Data;
-using Dashly.API.Feature.Bookmarks.Data.Entity;
+﻿using Alameen.Dashly.API.Models;
+using Alameen.Dashly.Common.Helpers;
+using Alameen.Dashly.Core;
+using Alameen.Dashly.Repository.Contract;
+using AutoMapper;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +12,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.Bookmarks
+namespace Alameen.Dashly.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

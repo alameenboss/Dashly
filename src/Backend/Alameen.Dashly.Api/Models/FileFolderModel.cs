@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Dashly.API.Feature.VideoManagement.Models
+namespace Alameen.Dashly.API.Models
 {
     public class FileFolderModel
     {

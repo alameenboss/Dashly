@@ -1,9 +1,9 @@
-﻿using Dashly.API.Feature.Authentication.Request;
-using Dashly.API.Feature.UserManagement.Services;
+﻿using Alameen.Dashly.API.Models;
+using Alameen.Dashly.Repository.Contract;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Dashly.API.Feature.UserManagement
+namespace Alameen.Dashly.API.Controllers
 {
     [Authorize]
     [ApiController]

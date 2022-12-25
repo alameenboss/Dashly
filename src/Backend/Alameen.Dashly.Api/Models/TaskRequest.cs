@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.Feature.TaskModule.DTO
+﻿namespace Alameen.Dashly.API.Models
 {
     public class TaskRequest
     {

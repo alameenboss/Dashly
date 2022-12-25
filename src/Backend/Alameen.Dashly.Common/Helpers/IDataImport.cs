@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.DataImport
+namespace Alameen.Dashly.Common.Helpers
 {
     public interface IDataImport<T>
     {
@@ -10,7 +10,7 @@ namespace Dashly.API.Feature.DataImport
 
     public enum ImportType
     {
-        WebApp=1,
+        WebApp = 1,
         Note,
         Contact
     }

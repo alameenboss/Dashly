@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.Feature.Bookmarks.Data.Entity
+﻿namespace Alameen.Dashly.Core
 {
     public class Bookmark
     {

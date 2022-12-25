@@ -1,9 +1,8 @@
-﻿using Dashly.API.Feature.DataImport;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.Notes
+namespace Alameen.Dashly.Common.Helpers
 {
     public abstract class DataImport<T> : IDataImport<T>
     {

@@ -1,4 +1,4 @@
-﻿using Dashly.API.Feature.Authentication;
+﻿using Alameen.Dashly.Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using System.Threading.Tasks;
@@ -11,7 +11,7 @@ namespace Alameen.Dashly.API.Controllers
     {
         private readonly AppSettings appSettings;
 
-        public EnvironmentController(IOptions<AppSettings>  options)
+        public EnvironmentController(IOptions<AppSettings> options)
         {
             this.appSettings = options.Value;
         }

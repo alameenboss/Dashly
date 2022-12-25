@@ -1,10 +1,9 @@
-﻿using Dashly.API.Feature.DataImport;
-using Dashly.API.Feature.WebApps.Data.Entity;
+﻿using Alameen.Dashly.Core;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.WebApps
+namespace Alameen.Dashly.Common.Helpers
 {
     public class ImportWebapp : IDataImport<Webapp>
     {
@@ -61,5 +60,5 @@ namespace Dashly.API.Feature.WebApps
         }
     }
 
-    
+
 }

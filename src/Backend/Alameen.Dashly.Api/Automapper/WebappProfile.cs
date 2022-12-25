@@ -1,8 +1,8 @@
-﻿using AutoMapper;
-using Dashly.API.Feature.WebApps.Data.Entity;
-using Dashly.API.Feature.WebApps.DTO.Request;
+﻿using Alameen.Dashly.API.Models;
+using Alameen.Dashly.Core;
+using AutoMapper;
 
-namespace Dashly.API.Feature.WebApps.DTO.Automapper
+namespace Alameen.Dashly.API.Automapper
 {
     public class WebappProfile : Profile
     {

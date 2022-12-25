@@ -1,10 +1,10 @@
 ﻿using System;
-using System.IO;
-using System.Text.RegularExpressions;
 using System.Collections;
 using System.Data;
+using System.IO;
+using System.Text.RegularExpressions;
 
-namespace Dashly.API.Feature.Bookmarks
+namespace Alameen.Dashly.Common.Helpers
 {
     public class BookmarkParser
     {

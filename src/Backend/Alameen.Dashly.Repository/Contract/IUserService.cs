@@ -1,7 +1,7 @@
-﻿using Dashly.API.Feature.UserManagement.Data.Entity;
+﻿using Alameen.Dashly.Core;
 using System.Collections.Generic;
 
-namespace Dashly.API.Feature.UserManagement.Services
+namespace Alameen.Dashly.Repository.Contract
 {
     public interface IUserService
     {

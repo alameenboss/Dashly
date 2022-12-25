@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dashly.API.Helpers
+namespace Alameen.Dashly.Common.Helpers
 {
     public class ContextResolver : IContextResolver
     {

@@ -1,5 +1,4 @@
-﻿using Dashly.API.Feature.Github.DTO;
-using Dashly.API.Feature.OAuthIntegrations.Data.Entity;
+﻿using Alameen.Dashly.Integration.GitHub.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.Github.Services
+namespace Alameen.Dashly.Integration.GitHub
 {
     public class GithubService : IGithubService
     {

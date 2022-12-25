@@ -1,13 +1,8 @@
-﻿using Dashly.API.Feature.Contacts;
-using Dashly.API.Feature.Contacts.Data.Entity;
-using Dashly.API.Feature.DataImport;
-using Dashly.API.Feature.Notes;
-using Dashly.API.Feature.Notes.Data.Entity;
-using Dashly.API.Feature.WebApps;
-using Dashly.API.Feature.WebApps.Data.Entity;
+﻿using Alameen.Dashly.Common.Helpers;
+using Alameen.Dashly.Core;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Dashly.API
+namespace Alameen.Dashly.Common
 {
     public static class ServiceExtension
     {

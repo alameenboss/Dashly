@@ -1,9 +1,4 @@
-﻿using Dashly.API.Data.Entity;
-using System;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace Dashly.API.Feature.TaskModule.Data.Entity
+﻿namespace Alameen.Dashly.Core
 {
     public class Board : BaseEntity
     {

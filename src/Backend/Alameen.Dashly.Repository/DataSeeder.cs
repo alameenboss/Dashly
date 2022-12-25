@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace Dashly.API.Helpers
+namespace Alameen.Dashly.Repository
 {
     public static class DataSeeder
     {

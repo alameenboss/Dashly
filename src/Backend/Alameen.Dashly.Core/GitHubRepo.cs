@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dashly.API.Feature.Github.Data.Entity
+namespace Alameen.Dashly.Core
 {
     public class GitHubRepo
     {

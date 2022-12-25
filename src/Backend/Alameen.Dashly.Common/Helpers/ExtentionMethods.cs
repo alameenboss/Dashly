@@ -1,8 +1,8 @@
-﻿using Dashly.API.Feature.UserManagement.Data.Entity;
+﻿using Alameen.Dashly.Core;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Dashly.API.Helpers
+namespace Alameen.Dashly.Common.Helpers
 {
     public static class ExtensionMethods
     {

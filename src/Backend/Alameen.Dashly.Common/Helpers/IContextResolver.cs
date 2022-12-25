@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.Helpers
+﻿namespace Alameen.Dashly.Common.Helpers
 {
     public interface IContextResolver
     {

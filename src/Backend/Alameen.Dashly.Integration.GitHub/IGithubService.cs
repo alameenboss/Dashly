@@ -1,8 +1,8 @@
-﻿using Dashly.API.Feature.Github.DTO;
+﻿using Alameen.Dashly.Integration.GitHub.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.Github.Services
+namespace Alameen.Dashly.Integration.GitHub
 {
     public interface IGithubService
     {

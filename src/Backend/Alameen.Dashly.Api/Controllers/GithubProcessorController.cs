@@ -1,13 +1,13 @@
-﻿using AutoMapper;
-using Dashly.API.Data.Entity;
-using Dashly.API.Feature.Github.Data.Entity;
-using Dashly.API.Feature.Github.Services;
+﻿using Alameen.Dashly.Core;
+using Alameen.Dashly.Integration.GitHub;
+using Alameen.Dashly.Repository.Data;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.Github
+namespace Alameen.Dashly.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace Dashly.API.Data.Entity
+namespace Alameen.Dashly.Repository.Data
 {
     public class MsSqlDbContext : DashlyContext
     {

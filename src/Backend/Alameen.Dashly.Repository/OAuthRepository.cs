@@ -1,12 +1,13 @@
-﻿using Dashly.API.Data.Entity;
-using Dashly.API.Feature.OAuthIntegrations.Data.Entity;
-using Dashly.API.Helpers;
+﻿using Alameen.Dashly.Common.Helpers;
+using Alameen.Dashly.Core;
+using Alameen.Dashly.Repository.Contract;
+using Alameen.Dashly.Repository.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.OAuthIntegrations.Data
+namespace Alameen.Dashly.Repository
 {
     public class OAuthRepository : IOAuthRepository
     {

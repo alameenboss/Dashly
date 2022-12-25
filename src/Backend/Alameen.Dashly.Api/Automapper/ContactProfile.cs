@@ -1,8 +1,8 @@
-﻿using AutoMapper;
-using Dashly.API.Feature.Contacts.Data.Entity;
-using Dashly.API.Feature.Contacts.DTO.Request;
+﻿using Alameen.Dashly.API.Models;
+using Alameen.Dashly.Core;
+using AutoMapper;
 
-namespace Dashly.API.Feature.Contacts.DTO.Automapper
+namespace Alameen.Dashly.API.Automapper
 {
     public class ContactProfile : Profile
     {

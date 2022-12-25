@@ -1,8 +1,6 @@
-﻿using Dashly.API.Data.Entity;
-using Dashly.API.Feature.WebApps.Data.Entity;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace Dashly.API.Feature.TaskModule.Data.Entity
+namespace Alameen.Dashly.Core
 {
     public class Tasks : BaseEntity
     {

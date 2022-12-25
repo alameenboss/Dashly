@@ -1,17 +1,17 @@
-﻿using Dashly.API.Feature.VideoManagement.Models;
+﻿using Alameen.Dashly.API.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace Dashly.API.Feature.VideoManagement
+namespace Alameen.Dashly.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class FilesController : ControllerBase
     {
-       
+
         [HttpGet("GetDrives")]
         public IEnumerable<string> GetDrives()
         {
@@ -34,7 +34,7 @@ namespace Dashly.API.Feature.VideoManagement
         {
             var model = new FileFolderModel();
 
-            model.Folders = Directory.GetDirectories(path)?.ToList().Select(x=>x.Replace(path.ToString(), "")).ToList();
+            model.Folders = Directory.GetDirectories(path)?.ToList().Select(x => x.Replace(path.ToString(), "")).ToList();
 
             // First, process all the files directly under this folder
             try

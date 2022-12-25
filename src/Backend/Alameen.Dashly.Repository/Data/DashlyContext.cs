@@ -1,16 +1,8 @@
-﻿using Dashly.API.Feature.Bookmarks.Data.Entity;
-using Dashly.API.Feature.Contacts.Data.Entity;
-using Dashly.API.Feature.Documents.Data.Entity;
-using Dashly.API.Feature.Github.Data.Entity;
-using Dashly.API.Feature.Notes.Data.Entity;
-using Dashly.API.Feature.OAuthIntegrations.Data.Entity;
-using Dashly.API.Feature.TaskModule.Data.Entity;
-using Dashly.API.Feature.UserManagement.Data.Entity;
-using Dashly.API.Feature.WebApps.Data.Entity;
+﻿using Alameen.Dashly.Core;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace Dashly.API.Data.Entity
+namespace Alameen.Dashly.Repository.Data
 {
     public abstract class DashlyContext : DbContext
     {

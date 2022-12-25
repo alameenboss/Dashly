@@ -1,8 +1,8 @@
-﻿using Dashly.API.Feature.Contacts.Data.Entity;
+﻿using Alameen.Dashly.Core;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.Contacts.Data
+namespace Alameen.Dashly.Repository.Contract
 {
     public interface IContactRepository
     {

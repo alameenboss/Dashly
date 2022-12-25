@@ -1,15 +1,8 @@
-﻿using Dashly.API.Feature.Bookmarks.Data;
-using Dashly.API.Feature.Contacts.Data;
-using Dashly.API.Feature.Documents.Data;
-using Dashly.API.Feature.Notes.Data.Repository;
-using Dashly.API.Feature.OAuthIntegrations.Data;
-using Dashly.API.Feature.TaskModule.Data;
-using Dashly.API.Feature.UserManagement.Services;
-using Dashly.API.Feature.WebApps.Data.Repository;
-using Dashly.API.Helpers;
+﻿using Alameen.Dashly.Common.Helpers;
+using Alameen.Dashly.Repository.Contract;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Dashly.API
+namespace Alameen.Dashly.Repository
 {
     public static class ServiceExtension
     {

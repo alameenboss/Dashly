@@ -1,7 +1,6 @@
-﻿using Dashly.API.Feature.DataImport;
-using Dashly.API.Feature.Notes.Data.Entity;
+﻿using Alameen.Dashly.Core;
 
-namespace Dashly.API.Feature.Notes
+namespace Alameen.Dashly.Common.Helpers
 {
     public class ImportNote : DataImport<Note>, IDataImport<Note>
     {

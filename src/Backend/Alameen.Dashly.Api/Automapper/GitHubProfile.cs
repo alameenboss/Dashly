@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Dashly.API.Feature.Github.DTO.Automapper
+namespace Alameen.Dashly.API.Automapper
 {
     public class GitHubProfile : Profile
     {

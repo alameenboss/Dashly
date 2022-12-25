@@ -1,6 +1,4 @@
-﻿using Dashly.API.Data.Entity;
-
-namespace Dashly.API.Feature.WebApps.Data.Entity
+﻿namespace Alameen.Dashly.Core
 {
     public class Tag : BaseEntity
     {

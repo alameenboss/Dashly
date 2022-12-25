@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.Feature.Contacts.DTO.Request
+﻿namespace Alameen.Dashly.API.Models
 {
     public class CreateContactRequest
     {

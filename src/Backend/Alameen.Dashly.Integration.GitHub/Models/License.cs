@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.Feature.Github.DTO
+﻿namespace Alameen.Dashly.Integration.GitHub.Models
 {
     public class License
     {

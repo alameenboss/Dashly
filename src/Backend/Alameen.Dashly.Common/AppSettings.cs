@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.Feature.Authentication
+﻿namespace Alameen.Dashly.Common
 {
     public class AppSettings
     {

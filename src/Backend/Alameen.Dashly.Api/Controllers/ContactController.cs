@@ -1,8 +1,8 @@
-﻿using AutoMapper;
-using Dashly.API.Feature.Contacts.Data;
-using Dashly.API.Feature.Contacts.Data.Entity;
-using Dashly.API.Feature.Contacts.DTO.Request;
-using Dashly.API.Feature.DataImport;
+﻿using Alameen.Dashly.API.Models;
+using Alameen.Dashly.Common.Helpers;
+using Alameen.Dashly.Core;
+using Alameen.Dashly.Repository.Contract;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.Contacts
+namespace Alameen.Dashly.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -22,7 +22,7 @@ namespace Dashly.API.Feature.Contacts
         private readonly IDataImport<Contact> _dataImport;
 
         public ContactController(
-            IContactRepository contactRepository, 
+            IContactRepository contactRepository,
             IDataImport<Contact> dataImport,
             IMapper mapper)
         {

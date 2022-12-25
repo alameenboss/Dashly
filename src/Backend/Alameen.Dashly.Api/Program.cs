@@ -1,26 +1,14 @@
+using Alameen.Dashly.Repository.Data;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Serilog;
-using Dashly.API.Data.Entity;
-using Dashly.API.Feature.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.Extensions.Hosting;
-using Microsoft.IdentityModel.Tokens;
-using NSwag;
-using NSwag.Generation.Processors.Security;
 using System.IO;
-using System.Text;
 
-namespace Dashly.API
+namespace Alameen.Dashly.API
 {
     public class Program
     {
@@ -61,7 +49,7 @@ namespace Dashly.API
 
                 host.Run();
 
-                
+
             }
             catch (System.Exception ex)
             {
@@ -72,7 +60,7 @@ namespace Dashly.API
             {
                 Log.CloseAndFlush();
             }
-            
+
         }
 
         private static void ApplyDBMigration(IConfigurationRoot configuration)

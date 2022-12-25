@@ -1,10 +1,11 @@
-using Dashly.API.Data.Entity;
-using Dashly.API.Feature.Authentication;
+using Alameen.Dashly.Common;
+using Alameen.Dashly.Integration.GitHub;
+using Alameen.Dashly.Repository;
+using Alameen.Dashly.Repository.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
@@ -12,20 +13,19 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using NSwag;
 using NSwag.Generation.Processors.Security;
-using System.IO;
 using System.Text;
 
-namespace Dashly.API
+namespace Alameen.Dashly.API
 {
     public class Startup
     {
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
-            
+
         }
 
-        
+
 
         public IConfiguration Configuration { get; }
 

@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.Feature.OAuthIntegrations.Data.Entity
+﻿namespace Alameen.Dashly.Core
 {
     public class OAuthIntegration
     {

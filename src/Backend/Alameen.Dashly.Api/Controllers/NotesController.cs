@@ -1,15 +1,15 @@
-﻿using AutoMapper;
-using Dashly.API.Feature.DataImport;
-using Dashly.API.Feature.Notes.Data.Entity;
-using Dashly.API.Feature.Notes.Data.Repository;
+﻿using Alameen.Dashly.Common.Helpers;
+using Alameen.Dashly.Core;
+using Alameen.Dashly.Repository.Contract;
+using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.Notes
+namespace Alameen.Dashly.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -18,7 +18,7 @@ namespace Dashly.API.Feature.Notes
         private readonly INoteRepository _noteRepository;
         private readonly IMapper _mapper;
         private readonly IDataImport<Note> _dataImport;
-        public NotesController(INoteRepository noteRepository, 
+        public NotesController(INoteRepository noteRepository,
             IDataImport<Note> dataImport,
             IMapper mapper)
         {

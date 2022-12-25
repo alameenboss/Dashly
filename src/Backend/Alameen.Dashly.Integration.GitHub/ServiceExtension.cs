@@ -1,7 +1,6 @@
-﻿using Dashly.API.Feature.Github.Services;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Dashly.API
+namespace Alameen.Dashly.Integration.GitHub
 {
     public static class ServiceExtension
     {

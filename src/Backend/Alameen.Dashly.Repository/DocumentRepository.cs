@@ -1,11 +1,12 @@
-﻿using Dashly.API.Data.Entity;
-using Dashly.API.Feature.Documents.Data.Entity;
-using Dashly.API.Helpers;
+﻿using Alameen.Dashly.Common.Helpers;
+using Alameen.Dashly.Core;
+using Alameen.Dashly.Repository.Contract;
+using Alameen.Dashly.Repository.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.Documents.Data
+namespace Alameen.Dashly.Repository
 {
     public class DocumentRepository : IDocumentRepository
     {

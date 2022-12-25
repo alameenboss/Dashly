@@ -1,8 +1,8 @@
-﻿using Dashly.API.Feature.Documents.Data.Entity;
+﻿using Alameen.Dashly.Core;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.Documents.Data
+namespace Alameen.Dashly.Repository.Contract
 {
     public interface IDocumentRepository
     {

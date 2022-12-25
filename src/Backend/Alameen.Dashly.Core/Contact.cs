@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.Feature.Contacts.Data.Entity
+﻿namespace Alameen.Dashly.Core
 {
     public class Contact
     {

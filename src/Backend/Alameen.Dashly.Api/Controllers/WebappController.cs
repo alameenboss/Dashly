@@ -1,8 +1,8 @@
-﻿using AutoMapper;
-using Dashly.API.Feature.DataImport;
-using Dashly.API.Feature.WebApps.Data.Entity;
-using Dashly.API.Feature.WebApps.Data.Repository;
-using Dashly.API.Feature.WebApps.DTO.Request;
+﻿using Alameen.Dashly.API.Models;
+using Alameen.Dashly.Common.Helpers;
+using Alameen.Dashly.Core;
+using Alameen.Dashly.Repository.Contract;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.WebApps
+namespace Alameen.Dashly.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -20,7 +20,7 @@ namespace Dashly.API.Feature.WebApps
         private readonly IMapper _mapper;
         private readonly IDataImport<Webapp> _dataImport;
 
-        public WebappController(IWebappRepository webappRepository, 
+        public WebappController(IWebappRepository webappRepository,
             IDataImport<Webapp> dataImport,
             IMapper mapper)
         {

@@ -1,11 +1,11 @@
-﻿using AutoMapper;
-using Dashly.API.Feature.Notes.Data.Entity;
-using Dashly.API.Feature.Notes.Data.Repository;
+﻿using Alameen.Dashly.Core;
+using Alameen.Dashly.Repository.Contract;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.Notes
+namespace Alameen.Dashly.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

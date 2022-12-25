@@ -1,4 +1,4 @@
-﻿namespace Dashly.API.Feature.Documents.Data.Entity
+﻿namespace Alameen.Dashly.Core
 {
     public class Document
     {

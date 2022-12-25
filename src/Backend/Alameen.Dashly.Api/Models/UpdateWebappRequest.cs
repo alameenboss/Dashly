@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Dashly.API.Feature.WebApps.DTO.Request
+namespace Alameen.Dashly.API.Models
 {
     public class UpdateWebappRequest
     {

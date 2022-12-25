@@ -1,12 +1,12 @@
-﻿using AutoMapper;
-using Dashly.API.Feature.OAuthIntegrations.Data;
-using Dashly.API.Feature.OAuthIntegrations.Data.Entity;
+﻿using Alameen.Dashly.Core;
+using Alameen.Dashly.Repository.Contract;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 
 using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.OAuthIntegrations
+namespace Alameen.Dashly.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -44,7 +44,7 @@ namespace Dashly.API.Feature.OAuthIntegrations
         {
             var clientId = await _oAuthRepository.GetOAuthClientIdByName(name);
 
-            return Ok(new { clientId = clientId });
+            return Ok(new { clientId });
         }
     }
 }

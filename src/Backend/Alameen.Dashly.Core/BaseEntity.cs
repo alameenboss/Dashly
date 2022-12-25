@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Dashly.API.Data.Entity
+namespace Alameen.Dashly.Core
 {
     public class BaseEntity
     {

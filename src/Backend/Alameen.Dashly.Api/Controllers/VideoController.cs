@@ -1,11 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Net.Http.Headers;
-using System.IO;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
 
-namespace Dashly.API.Feature.VideoManagement
+namespace Alameen.Dashly.API.Controllers
 {
 
 
