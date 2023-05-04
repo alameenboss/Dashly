@@ -1,7 +1,11 @@
+using Alameen.Dashly.API.Controllers;
+using Alameen.Dashly.API.Models;
 using Alameen.Dashly.Common;
 using Alameen.Dashly.Integration.GitHub;
-using Alameen.Dashly.Repository;
 using Alameen.Dashly.Repository.Data;
+using Alameen.Dashly.Repository.Extension;
+using Hangfire;
+using Hangfire.SqlServer;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,6 +17,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using NSwag;
 using NSwag.Generation.Processors.Security;
+using System;
 using System.Text;
 
 namespace Alameen.Dashly.API
@@ -79,7 +84,23 @@ namespace Alameen.Dashly.API
                     break;
             }
 
+            services.AddScoped<ScanRecordings>();
             services.RegisterServices();
+
+            services.AddHangfire(configuration => configuration
+                   .SetDataCompatibilityLevel(CompatibilityLevel.Version_170)
+                   .UseSimpleAssemblyNameTypeSerializer()
+                   .UseRecommendedSerializerSettings()
+                   .UseSqlServerStorage(Configuration.GetConnectionString("MsSqlConnection"), new SqlServerStorageOptions
+                   {
+                       CommandBatchMaxTimeout = TimeSpan.FromMinutes(5),
+                       SlidingInvisibilityTimeout = TimeSpan.FromMinutes(5),
+                       QueuePollInterval = TimeSpan.Zero,
+                       UseRecommendedIsolationLevel = true,
+                       DisableGlobalLocks = true
+                   }));
+
+            services.AddHangfireServer();
 
             services.AddImports();
             services.AddGitHubIntegration();
@@ -118,6 +139,9 @@ namespace Alameen.Dashly.API
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseHangfireDashboard();
+            //app.UseHangfireServer();
+
             app.UseOpenApi();
             app.UseSwaggerUi3();
 
@@ -147,6 +171,7 @@ namespace Alameen.Dashly.API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHangfireDashboard();
             });
         }
     }

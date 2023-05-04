@@ -19,8 +19,8 @@ export class FileuploadComponent {
     this.prepareFilesList($event);
   }
 
-  fileBrowseHandler(files) {
-    this.prepareFilesList(files);
+  fileBrowseHandler(target) {
+    this.prepareFilesList(target.files);
   }
 
   deleteFile(index: number) {

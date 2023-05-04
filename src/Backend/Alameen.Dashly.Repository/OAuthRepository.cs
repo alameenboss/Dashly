@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Alameen.Dashly.Repository
 {
+   
     public class OAuthRepository : IOAuthRepository
     {
         private readonly DashlyContext _dbContext;
@@ -31,53 +32,54 @@ namespace Alameen.Dashly.Repository
             });
         }
 
-        public async Task<bool> AddOAuthApp(string name, string tokenurl, string appid, string clientid, string secret)
+        public async Task<bool> Insert(OAuthIntegration entity)
         {
-            var oAuthIntegration = new OAuthIntegration()
-            {
-                Name = name,
-                TokenUrl = tokenurl,
-                AppId = appid,
-                ClientId = clientid,
-                Secret = secret
-            };
-
-            await _dbContext.OAuthIntegrations.AddAsync(oAuthIntegration);
+            await _dbContext.OAuthIntegrations.AddAsync(entity);
             await _dbContext.SaveChangesAsync();
 
             return true;
         }
 
-        public async Task<string> GetOAuthClientIdByName(string name)
+        public async Task<string> GetClientIdById(int id)
         {
-            var response = await _dbContext.OAuthIntegrations.FirstOrDefaultAsync(x => x.Name.ToLower() == name.ToLower());
+            var entity = await _dbContext.OAuthIntegrations.FirstOrDefaultAsync(x => x.Id == id);
 
-            if (response != null)
+            if (entity != null)
             {
-                return response.ClientId;
+                return entity.ClientId;
             }
 
             return "";
         }
 
-        public async Task<OAuthIntegration> GetOAuthAppSecret(string name)
+        public async Task<string> GetSecretByClientId(string clientId)
         {
-            return await _dbContext.OAuthIntegrations.FirstOrDefaultAsync(x => x.Name.ToLower() == name.ToLower());
+            return (await _dbContext
+                .OAuthIntegrations
+                .FirstOrDefaultAsync(x =>
+                    x.ClientId == clientId.ToLower()
+                    )
+                ).Secret;
         }
 
-        public async Task<bool> UpdateOAuthCode(string name, string code)
+        public async Task<bool> UpdateCodeById(int id, string code)
         {
-            var response = await _dbContext.OAuthIntegrations.FirstOrDefaultAsync(x => x.Name.ToLower() == name.ToLower());
+            var entity = await _dbContext.OAuthIntegrations.FirstOrDefaultAsync(x => x.Id == id);
 
-            if (response != null)
+            if (entity != null)
             {
-                response.Code = code;
-                _dbContext.Update(response);
+                entity.Code = code;
+                _dbContext.Update(entity);
                 await _dbContext.SaveChangesAsync();
                 return true;
             }
 
             return false;
+        }
+
+        public Task<bool> DeleteById(int id)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

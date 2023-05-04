@@ -16,6 +16,7 @@ import { QuillModule } from 'ngx-quill';
 import { SignInComponent } from './features/integration/components/signin/signin.component';
 import { SpinnerInterceptor } from './shared/components/spinner-overlay/spinner-interceptor';
 
+
 const applicationModule = [
   AuthenticationModule,
   WebappModule
@@ -38,6 +39,7 @@ const applicationModule = [
     ReactiveFormsModule,
     AppRoutingModule,
     SharedModule,
+    
     QuillModule.forRoot()
   ],
   providers: [

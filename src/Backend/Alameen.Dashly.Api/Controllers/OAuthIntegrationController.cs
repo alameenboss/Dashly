@@ -27,24 +27,24 @@ namespace Alameen.Dashly.API.Controllers
             return await _oAuthRepository.GetAll();
         }
 
-        [HttpPut("{name}")]
-        public async Task<bool> UpdateOAuthCode(string name, OAuthIntegration oAuthIntegration)
+        [HttpPut("{id}")]
+        public async Task<bool> UpdateCodeById(int id, string code)
         {
-            return await _oAuthRepository.UpdateOAuthCode(name, oAuthIntegration.Code);
+            return await _oAuthRepository.UpdateCodeById(id, code);
         }
 
         [HttpPost]
-        public async Task<bool> AddOAuthApp(OAuthIntegration oAuthIntegration)
+        public async Task<bool> Insert(OAuthIntegration entity)
         {
-            return await _oAuthRepository.AddOAuthApp(oAuthIntegration.Name, oAuthIntegration.TokenUrl, oAuthIntegration.AppId, oAuthIntegration.ClientId, oAuthIntegration.Secret);
+            return await _oAuthRepository.Insert(entity);
         }
 
-        [HttpGet("getclientid/{name}")]
-        public async Task<IActionResult> GetOAuthClientIdByName(string name)
+        [HttpGet("getclientid/{id}")]
+        public async Task<IActionResult> GetClientIdById(int id)
         {
-            var clientId = await _oAuthRepository.GetOAuthClientIdByName(name);
+            var clientId = await _oAuthRepository.GetClientIdById(id);
 
-            return Ok(new { clientId });
+            return Ok(new { clientId =  clientId });
         }
     }
 }

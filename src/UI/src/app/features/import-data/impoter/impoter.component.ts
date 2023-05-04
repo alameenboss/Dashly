@@ -27,8 +27,8 @@ export class ImpoterComponent implements OnInit {
     this.prepareFilesList($event);
   }
 
-  fileBrowseHandler(files) {
-    this.prepareFilesList(files);
+  fileBrowseHandler(target) {
+    this.prepareFilesList(target.files);
   }
 
   deleteFile(index: number) {

@@ -2,7 +2,7 @@
 using Alameen.Dashly.Repository.Contract;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Alameen.Dashly.Repository
+namespace Alameen.Dashly.Repository.Extension
 {
     public static class ServiceExtension
     {
@@ -19,7 +19,7 @@ namespace Alameen.Dashly.Repository
             services.AddScoped<IContactRepository, ContactRepository>();
             services.AddScoped<IBoardRepository, BoardRepository>();
             services.AddScoped<ITaskRepository, TaskRepository>();
-
+            services.AddScoped<ICallRecordingRepository,CallRecordingRepository>();
         }
     }
 }

@@ -45,7 +45,7 @@ export class DocEditorComponent implements OnInit {
   }
 
   get documentRawControl() {
-    return this.documentForm.controls.content as FormControl;
+    return this.documentForm.controls['content'] as FormControl;
   }
   getById(docId: string) {
     this.documentService.getByDocId(docId).subscribe(res => {

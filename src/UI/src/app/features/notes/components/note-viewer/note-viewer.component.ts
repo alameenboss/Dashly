@@ -21,8 +21,8 @@ export class NoteViewerComponent implements OnInit,OnDestroy {
 
   ngOnInit(): void {
    this.routeSub =  this.route.params.subscribe(param => {
-      this.noteId = param.id;
-      this.getNoteById(param.id);
+      this.noteId = param['id'];
+      this.getNoteById(param['id']);
     })
   }
 

@@ -37,7 +37,7 @@ const routes: Routes = [
     path: 'webapp',
     component: MainNavComponent,
     data: {
-      breadcrumb: 'Web App'
+      breadcrumb: 'Webapp'
     },
     loadChildren: () => import('src/app/features/webapps/webapp.module').then(m => m.WebappModule)
   },
@@ -82,12 +82,12 @@ const routes: Routes = [
     loadChildren: () => import('src/app/features/contacts/contacts.module').then(m => m.ContactsModule)
   },
   {
-    path: 'feedback',
+    path: 'showevents',
     data: {
-      breadcrumb: 'Feedback'
+      breadcrumb: 'Show Events'
     },
     component: MainNavComponent,
-    loadChildren: () => import('src/app/features/feedbacks/feedback.module').then(m => m.FeedbackModule)
+    loadChildren: () => import('src/app/features/show-events/show-events.module').then(m => m.ShowEventsModule)
   },
   {
     path: 'authentication',

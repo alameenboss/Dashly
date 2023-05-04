@@ -32,13 +32,13 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
     });
     this.routeSub = this.route.params.subscribe((param: Params) => {
 
-      if (param.id != undefined) {
-        this.noteId = param.id;
+      if (param['id'] != undefined) {
+        this.noteId = param['id'];
       }
 
-      if (param.categoryId != undefined) {
+      if (param['categoryId'] != undefined) {
         this.noteId = 0;
-        this.categoryId = param.categoryId;
+        this.categoryId = param['categoryId'];
       }
 
       if (this.noteId > 0) {
@@ -50,7 +50,7 @@ export class NoteEditorComponent implements OnInit, OnDestroy {
   }
 
   get notesRawControl() {
-    return this.noteForm.controls.notes as FormControl;
+    return this.noteForm.controls['notes'] as FormControl;
   }
 
   getNoteById(id: number): any {

@@ -1,6 +1,6 @@
 <mat-progress-bar *ngIf="progress > 0" mode="determinate" value="progress"></mat-progress-bar>
 <mat-card class="example-card" appDnd (fileDropped)="onFileDropped($event)">
-  <img *ngIf="showImage" mat-card-image [src]="imageUrl" alt="{{webapp.name}}"
+  <img *ngIf="showImage" [src]="imageUrl" alt="{{webapp.name}}" class="thumbnail"
     onerror="this.onerror=null; this.src='assets/image/default.png'">
   <mat-card-content>
     <div class="card-content">

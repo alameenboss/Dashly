@@ -1,6 +1,10 @@
 
-.mat-card-image{
-  height: 150px;
+.thumbnail{
+  width: calc(100% - 12px);
+  height: 200px;
+  padding: 5px;
+  border: 2px solid grey;
+  background-color: lightgray;
 }
 .card-content{
   display: flex;

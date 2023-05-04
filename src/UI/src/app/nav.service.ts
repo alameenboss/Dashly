@@ -25,16 +25,11 @@ export class NavService {
   public openNav() {
     this.appDrawer.open();
   }
-
   public getMenu() {
     return [
       { displayName: 'Dashboard', iconName: 'dashboard', route: "/dashboard" },
       {
-        displayName: 'Webapps', iconName: 'public', route: 'webapp', children: [
-          { displayName: 'Add', iconName: 'add', route: '/webapp/add' },
-          { displayName: 'List', iconName: 'list', route: '/webapp/listview' },
-          { displayName: 'Card', iconName: 'view_day', route: '/webapp/cardview' }
-        ]
+        displayName: 'Webapps', iconName: 'public', route: 'webapp/cardview'
       },
       { displayName: 'Import Data', iconName: 'upload_file', route: '/dashboard/import' },
       { displayName: 'File Explorer', iconName: 'folder_open', route: '/fileexplorer' },
@@ -57,13 +52,8 @@ export class NavService {
         { displayName: 'Edit', iconName: 'add', route: '/contacts' },
         { displayName: 'List', iconName: 'list', route: '/contacts/list' }
       ]},
-      { displayName: 'Family Hierarchy', iconName: 'people', route: '/family' },
-      { displayName: 'Passwords', iconName: 'pin', route: '/password' },
-      { displayName: 'Pay Slips', iconName: 'request_quote', route: '/payslips' },
+      { displayName: 'Show Events', iconName: 'contact_page', route: '/showevents'},
       { displayName: 'Video', iconName: 'video_library', route: '/video-player' },
-      { displayName: 'Audio', iconName: 'audiotrack', route: '/audio' },
-      { displayName: 'Bookmarks', iconName: 'bookmarks', route: '/bookmarks' },
-      { displayName: 'feedback', iconName: 'feedback', route: '/feedback' }
     ]
   }
 }

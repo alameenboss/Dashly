@@ -89,11 +89,11 @@ export class AddEditWebappComponent implements OnInit {
 
   //#region "Attachment"
   addAttachment() {
-    let attachmentsArray = <FormArray>this.webappForm.controls.attachments;
+    let attachmentsArray = <FormArray>this.webappForm.controls['attachments'];
     attachmentsArray.push(this.getAttachmentsFormGroup());
   }
   removeAttachment(index) {
-    let attachmentsArray = <FormArray>this.webappForm.controls.attachments;
+    let attachmentsArray = <FormArray>this.webappForm.controls['attachments'];
     attachmentsArray.removeAt(index)
   }
 
@@ -112,11 +112,11 @@ export class AddEditWebappComponent implements OnInit {
 
   //#region "Tags"
   addTag() {
-    let tagsArray = <FormArray>this.webappForm.controls.tags;
+    let tagsArray = <FormArray>this.webappForm.controls['tags'];
     tagsArray.push(this.getTagsFormGroup());
   }
   removeTag(index) {
-    let tagsArray = <FormArray>this.webappForm.controls.tags;
+    let tagsArray = <FormArray>this.webappForm.controls['tags'];
     tagsArray.removeAt(index)
   }
 
@@ -167,7 +167,7 @@ export class AddEditWebappComponent implements OnInit {
   //#endregion
 
   public uploadFinished = (event) => {
-    let attachmentsArray = <FormArray>this.webappForm.controls.attachments;
+    let attachmentsArray = <FormArray>this.webappForm.controls['attachments'];
     attachmentsArray.push(this.getAttachmentsFormGroup(event));
   }
 }

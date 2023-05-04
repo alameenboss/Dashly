@@ -1,8 +1,12 @@
-<div>
-  <mat-form-field appearance="standard" style=" width: 100%;">
+<div style="display: flex;justify-content: space-between;">
+  <mat-form-field appearance="outline" style=" width: 300px;">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. google" #input>
   </mat-form-field>
+  <div>
+    <button mat-raised-button color="primary" [routerLink]="['/webapp/add']">Add new</button>
+    <button mat-button color="accent" [routerLink]="['/webapp/cardview']">Card view</button>
+  </div>
 </div>
 <div class="mat-elevation-z8">
   <div class="example-container">

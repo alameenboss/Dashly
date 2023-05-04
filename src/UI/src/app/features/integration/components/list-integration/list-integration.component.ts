@@ -70,6 +70,10 @@ export class ListIntegrationComponent implements AfterViewInit {
 
   }
 
+  expandRow(row) {
+    this.expandedRow = this.expandedRow === row ? null : row
+  }
+  
   removeIntegration(id: number) {
     const dialogRef = this.dialog.open(ConfiramtionComponent, {
       width: '400px',

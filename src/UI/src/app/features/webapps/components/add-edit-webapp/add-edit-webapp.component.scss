@@ -1,5 +1,6 @@
 .wrapper {
-  margin: 15px;
+  margin: 2px;
+  border: 2px solid gray;
 }
 .row {
   display: flex;
@@ -13,7 +14,11 @@
   flex-direction: column;
   flex-basis: 100%;
   flex: 1;
-  margin: 10px;
+  margin: 5px;
+}
+.spacer{
+  border-left: 2px solid gray;
+  margin: 5px 5px;
 }
 .attachments {
   margin: 10px;

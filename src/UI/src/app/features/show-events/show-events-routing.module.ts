@@ -1,19 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FeedbackMainComponent } from './components/feedback-main/feedback-main.component';
+import { DisplayEventsComponent } from './components/display-events/display-events.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: FeedbackMainComponent,
+    path:'',component: DisplayEventsComponent,
     data: {
       breadcrumb: ''
     }
-  },
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class FeedbackRoutingModule { }
+export class ShowEventsRoutingModule { }

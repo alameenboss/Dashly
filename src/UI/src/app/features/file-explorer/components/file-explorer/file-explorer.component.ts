@@ -15,7 +15,7 @@ export class FileExplorerComponent implements OnInit {
   constructor(public dialog: MatDialog) {}
 
   @Input() fileElements: FileElement[];
-  @Input() canNavigateUp: string;
+  @Input() canNavigateUp: boolean;
   @Input() path: string;
 
   @Output() folderAdded = new EventEmitter<{ name: string }>();

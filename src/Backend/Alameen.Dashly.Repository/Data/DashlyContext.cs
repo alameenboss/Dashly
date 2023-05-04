@@ -41,6 +41,7 @@ namespace Alameen.Dashly.Repository.Data
 
         #region "Contacts"
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<CallRecording> CallRecordings { get; set; }
         #endregion
 
         #region "OAuthIntegrations"

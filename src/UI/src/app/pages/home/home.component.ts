@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDrawerMode } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-home',
@@ -16,5 +17,5 @@ export class HomeComponent implements OnInit {
   showHide() {
 
   }
-  isShowHideFlag = "over"
+  isShowHideFlag:MatDrawerMode  = "over"
 }

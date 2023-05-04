@@ -19,7 +19,86 @@ namespace Alameen.Dashly.Repository.Migrations.MsSql
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Dashly.API.Feature.Bookmarks.Data.Entity.Bookmark", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.Attachment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPrimary")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("TasksId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("WebAppId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TasksId");
+
+                    b.HasIndex("WebAppId");
+
+                    b.ToTable("Attachment");
+                });
+
+            modelBuilder.Entity("Alameen.Dashly.Core.Board", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Boards");
+                });
+
+            modelBuilder.Entity("Alameen.Dashly.Core.Bookmark", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -40,7 +119,69 @@ namespace Alameen.Dashly.Repository.Migrations.MsSql
                     b.ToTable("Bookmarks");
                 });
 
-            modelBuilder.Entity("Dashly.API.Feature.Contacts.Data.Entity.Contact", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.CallRecording", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("CreatedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("HashValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModifiedTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Path")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("TotalSeconds")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CallRecordings");
+                });
+
+            modelBuilder.Entity("Alameen.Dashly.Core.Comment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("TasksId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TasksId");
+
+                    b.ToTable("Comment");
+                });
+
+            modelBuilder.Entity("Alameen.Dashly.Core.Contact", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -61,7 +202,7 @@ namespace Alameen.Dashly.Repository.Migrations.MsSql
                     b.ToTable("Contacts");
                 });
 
-            modelBuilder.Entity("Dashly.API.Feature.Documents.Data.Entity.Document", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.Document", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -79,7 +220,7 @@ namespace Alameen.Dashly.Repository.Migrations.MsSql
                     b.ToTable("Documents");
                 });
 
-            modelBuilder.Entity("Dashly.API.Feature.Github.Data.Entity.GitHubRepo", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.GitHubRepo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -121,7 +262,7 @@ namespace Alameen.Dashly.Repository.Migrations.MsSql
                     b.ToTable("GitHubRepo");
                 });
 
-            modelBuilder.Entity("Dashly.API.Feature.Notes.Data.Entity.Note", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.Note", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -144,7 +285,7 @@ namespace Alameen.Dashly.Repository.Migrations.MsSql
                     b.ToTable("Note");
                 });
 
-            modelBuilder.Entity("Dashly.API.Feature.Notes.Data.Entity.NoteCategory", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.NoteCategory", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -164,7 +305,7 @@ namespace Alameen.Dashly.Repository.Migrations.MsSql
                     b.ToTable("NoteCategory");
                 });
 
-            modelBuilder.Entity("Dashly.API.Feature.OAuthIntegrations.Data.Entity.OAuthIntegration", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.OAuthIntegration", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -194,7 +335,7 @@ namespace Alameen.Dashly.Repository.Migrations.MsSql
                     b.ToTable("OAuthIntegrations");
                 });
 
-            modelBuilder.Entity("Dashly.API.Feature.TaskModule.Data.Entity.Board", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.Role", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -205,9 +346,6 @@ namespace Alameen.Dashly.Repository.Migrations.MsSql
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
@@ -224,10 +362,10 @@ namespace Alameen.Dashly.Repository.Migrations.MsSql
 
                     b.HasKey("Id");
 
-                    b.ToTable("Boards");
+                    b.ToTable("Role");
                 });
 
-            modelBuilder.Entity("Dashly.API.Feature.TaskModule.Data.Entity.Comment", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.Tag", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -243,6 +381,9 @@ namespace Alameen.Dashly.Repository.Migrations.MsSql
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int?>("TasksId")
                         .HasColumnType("int");
 
@@ -252,14 +393,19 @@ namespace Alameen.Dashly.Repository.Migrations.MsSql
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("WebAppId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("TasksId");
 
-                    b.ToTable("Comment");
+                    b.HasIndex("WebAppId");
+
+                    b.ToTable("Tag");
                 });
 
-            modelBuilder.Entity("Dashly.API.Feature.TaskModule.Data.Entity.Tasks", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.Tasks", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -313,37 +459,7 @@ namespace Alameen.Dashly.Repository.Migrations.MsSql
                     b.ToTable("Tasks");
                 });
 
-            modelBuilder.Entity("Dashly.API.Feature.UserManagement.Data.Entity.Role", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Role");
-                });
-
-            modelBuilder.Entity("Dashly.API.Feature.UserManagement.Data.Entity.User", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -390,93 +506,7 @@ namespace Alameen.Dashly.Repository.Migrations.MsSql
                     b.ToTable("User");
                 });
 
-            modelBuilder.Entity("Dashly.API.Feature.WebApps.Data.Entity.Attachment", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsPrimary")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("TasksId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("WebAppId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TasksId");
-
-                    b.HasIndex("WebAppId");
-
-                    b.ToTable("Attachment");
-                });
-
-            modelBuilder.Entity("Dashly.API.Feature.WebApps.Data.Entity.Tag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("TasksId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("WebAppId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("TasksId");
-
-                    b.HasIndex("WebAppId");
-
-                    b.ToTable("Tag");
-                });
-
-            modelBuilder.Entity("Dashly.API.Feature.WebApps.Data.Entity.Webapp", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.Webapp", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -530,60 +560,60 @@ namespace Alameen.Dashly.Repository.Migrations.MsSql
                     b.ToTable("Webapp");
                 });
 
-            modelBuilder.Entity("Dashly.API.Feature.Notes.Data.Entity.Note", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.Attachment", b =>
                 {
-                    b.HasOne("Dashly.API.Feature.Notes.Data.Entity.NoteCategory", "Category")
+                    b.HasOne("Alameen.Dashly.Core.Tasks", null)
+                        .WithMany("Attachments")
+                        .HasForeignKey("TasksId");
+
+                    b.HasOne("Alameen.Dashly.Core.Webapp", "Webapp")
+                        .WithMany("Attachments")
+                        .HasForeignKey("WebAppId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Alameen.Dashly.Core.Comment", b =>
+                {
+                    b.HasOne("Alameen.Dashly.Core.Tasks", null)
+                        .WithMany("Comments")
+                        .HasForeignKey("TasksId");
+                });
+
+            modelBuilder.Entity("Alameen.Dashly.Core.Note", b =>
+                {
+                    b.HasOne("Alameen.Dashly.Core.NoteCategory", "Category")
                         .WithMany("Notes")
                         .HasForeignKey("NoteCategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Dashly.API.Feature.Notes.Data.Entity.NoteCategory", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.NoteCategory", b =>
                 {
-                    b.HasOne("Dashly.API.Feature.Notes.Data.Entity.NoteCategory", null)
+                    b.HasOne("Alameen.Dashly.Core.NoteCategory", null)
                         .WithMany("Categories")
                         .HasForeignKey("NoteCategoryId");
                 });
 
-            modelBuilder.Entity("Dashly.API.Feature.TaskModule.Data.Entity.Comment", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.Tag", b =>
                 {
-                    b.HasOne("Dashly.API.Feature.TaskModule.Data.Entity.Tasks", null)
-                        .WithMany("Comments")
+                    b.HasOne("Alameen.Dashly.Core.Tasks", null)
+                        .WithMany("Tags")
                         .HasForeignKey("TasksId");
+
+                    b.HasOne("Alameen.Dashly.Core.Webapp", "Webapp")
+                        .WithMany("Tags")
+                        .HasForeignKey("WebAppId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("Dashly.API.Feature.UserManagement.Data.Entity.User", b =>
+            modelBuilder.Entity("Alameen.Dashly.Core.User", b =>
                 {
-                    b.HasOne("Dashly.API.Feature.UserManagement.Data.Entity.Role", "Role")
+                    b.HasOne("Alameen.Dashly.Core.Role", "Role")
                         .WithMany()
                         .HasForeignKey("RoleId");
-                });
-
-            modelBuilder.Entity("Dashly.API.Feature.WebApps.Data.Entity.Attachment", b =>
-                {
-                    b.HasOne("Dashly.API.Feature.TaskModule.Data.Entity.Tasks", null)
-                        .WithMany("Attachments")
-                        .HasForeignKey("TasksId");
-
-                    b.HasOne("Dashly.API.Feature.WebApps.Data.Entity.Webapp", "Webapp")
-                        .WithMany("Attachments")
-                        .HasForeignKey("WebAppId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Dashly.API.Feature.WebApps.Data.Entity.Tag", b =>
-                {
-                    b.HasOne("Dashly.API.Feature.TaskModule.Data.Entity.Tasks", null)
-                        .WithMany("Tags")
-                        .HasForeignKey("TasksId");
-
-                    b.HasOne("Dashly.API.Feature.WebApps.Data.Entity.Webapp", "Webapp")
-                        .WithMany("Tags")
-                        .HasForeignKey("WebAppId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }
