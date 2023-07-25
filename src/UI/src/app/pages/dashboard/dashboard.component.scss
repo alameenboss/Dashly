@@ -1,6 +1,10 @@
-.main {
+.dashboard-container {
   display: flex;
-    align-items: center;
-    justify-content: center;
-    height: calc(100vh - 60px);
+  flex-direction: column;
+  height: 100vh;
+}
+
+.overview {
+  display: flex;
+  justify-content: space-between;
 }
