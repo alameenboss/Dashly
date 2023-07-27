@@ -1,0 +1,41 @@
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 64px);
+}
+
+.overview {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  .dashboard-card{
+    padding: 5px;
+    flex-grow: 1;
+
+    &:nth-child(1){
+      background-color: #fd6a63;
+    }
+    &:nth-child(2){
+      background-color: #27ae61;
+    } 
+    &:nth-child(3){
+      background-color: #ffba55;
+    }
+    &:nth-child(4){
+      background-color: #2bbef4;
+    }
+    &:nth-child(5){
+      background-color: #8d83bc;
+    }
+    &:nth-child(6){
+      background-color: #9180de;
+    }
+    &:nth-child(7){
+      background-color: #ff69b3;
+    }
+    &:nth-child(8){
+      background-color: #983768;
+    }
+  }
+}

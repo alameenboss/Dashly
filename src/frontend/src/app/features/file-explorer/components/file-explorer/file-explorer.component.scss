@@ -1,0 +1,37 @@
+:host {
+    height: 100%;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .content{
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    .file-or-folder {
+      padding: 8px;
+      overflow: hidden;
+      .file-or-folder-item{
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  
+  .file-or-folder-icon {
+    width: 32px;
+    height: 32px;
+    font-size: 32px;
+  }
+  
+  .pointer {
+    cursor: pointer;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }

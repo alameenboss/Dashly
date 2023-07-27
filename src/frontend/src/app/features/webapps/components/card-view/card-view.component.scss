@@ -1,0 +1,22 @@
+.card-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+.card-column {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+}
+
+.app-list {
+  margin-top: 10px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 1rem;
+}

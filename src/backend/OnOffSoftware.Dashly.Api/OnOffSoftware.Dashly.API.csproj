@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Folder Include="logs\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\OnOffSoftware.Dashly.Common\OnOffSoftware.Dashly.Common.csproj" />
+	  <ProjectReference Include="..\OnOffSoftware.Dashly.Core\OnOffSoftware.Dashly.Core.csproj" />
+	  <ProjectReference Include="..\OnOffSoftware.Dashly.Repository\OnOffSoftware.Dashly.Repository.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="3.1.11" />
+		<PackageReference Include="NSwag.AspNetCore" Version="13.16.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.18" />
+	</ItemGroup>
+</Project>
