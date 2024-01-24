@@ -11,9 +11,13 @@
   .content{
     display: grid;
     grid-template-columns: auto auto auto auto;
+    background-color: rgba($color: #000, $alpha: 0.4);
+ 
     .file-or-folder {
-      padding: 8px;
+      margin: 4px;
+      padding: 4px;
       overflow: hidden;
+      background-color: #fff ;
       .file-or-folder-item{
         display: flex;
         align-items: center;
