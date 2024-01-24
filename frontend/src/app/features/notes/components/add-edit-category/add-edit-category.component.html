@@ -1,7 +1,10 @@
-<h1 mat-dialog-title>Create a category</h1>
 
-<mat-dialog-content>
-  <mat-form-field class="example-full-width">
+<mat-toolbar color="primary" >
+  Add category
+</mat-toolbar>
+<mat-dialog-content style="width: 400px;">
+  <mat-form-field style="width: 100%;" floatLabel="always" appearance="outline">
+    <mat-label>Enter category name</mat-label>
     <input matInput placeholder="Category Name" [(ngModel)]="categoryName">
   </mat-form-field>
 </mat-dialog-content>

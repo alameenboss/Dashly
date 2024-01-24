@@ -7,14 +7,15 @@ ul {
   margin: 0px;
 }
 
-ul li {
-  margin-left: 20px;
-}
+// ul li {
+//   margin-left: 20px;
+// }
 
 .title-wrapper {
   display: flex;
-  font-weight: 500;
   cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
   .actions {
     display: inline-flex;
   }

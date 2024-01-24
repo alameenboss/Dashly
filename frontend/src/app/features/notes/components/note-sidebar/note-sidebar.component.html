@@ -1,25 +1,25 @@
 <ng-container *ngIf="notecategories.length > 0;else other_content">
     <ng-container *ngTemplateOutlet="replyThread; context: { $implicit: notecategories }">
-
     </ng-container>
 </ng-container>
-<ng-template #other_content>
-    <div class="content-center" >
-        <span (click)="openAddCategoryDialog()">
-            <mat-icon>create_new_folder</mat-icon>Add Category
-        </span>
-        
-    </div>
-    
-</ng-template>
 
+<ng-template #other_content>
+    <div class="content-center">
+        <span (click)="openAddCategoryDialog()">
+            <mat-icon>create_new_folder</mat-icon>Add category
+        </span>
+    </div>
+</ng-template>
 
 <ng-template #replyThread let-category>
     <ul>
         <li *ngFor="let cat of category">
             <span class="title-wrapper" (click)="onCategorySelected(cat)">
-                <mat-icon>folder</mat-icon>
-                <span class="title">{{ cat.name }}</span>
+                <span class="title-wrapper">
+                    <mat-icon>folder</mat-icon>
+                    <span class="title">{{ cat.name }}</span>
+                </span>
+
                 <span class="actions">
                     <mat-icon>create_new_folder</mat-icon>
                     <mat-icon>edit</mat-icon>
@@ -29,8 +29,11 @@
             <ul *ngIf="cat.notes">
                 <li *ngFor="let note of cat.notes">
                     <span class="title-wrapper">
-                        <mat-icon>description</mat-icon>
-                        <span class="title" (click)="onNoteSelected(note)"> {{ note.title }}</span>
+
+                        <span class="title-wrapper" style="margin-left: 20px;">
+                            <mat-icon>description</mat-icon>
+                            <span class="title" (click)="onNoteSelected(note)"> {{ note.title }}</span>
+                        </span>
                         <span class="actions">
                             <mat-icon (click)="editNote(note)">edit</mat-icon>
                             <mat-icon (click)="deleteNote(note)">delete</mat-icon>
