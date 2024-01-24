@@ -1,0 +1,35 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  width: 100%;
+
+
+}
+
+.active {
+
+  background-color: rebeccapurple !important;
+
+  .menu-item {
+    font-weight: 500;
+  }
+}
+
+
+.mat-list-item {
+  padding: 4px 0;
+  display: flex;
+  width: auto;
+
+  .routeIcon {
+    margin-right: 5px;
+  }
+}
+
+.menu-item {
+  display: flex;
+  align-items: stretch;
+  color: #fff;
+
+}

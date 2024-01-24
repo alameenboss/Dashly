@@ -1,0 +1,19 @@
+<div class="card-row">
+    <form class="example-form" [formGroup]="formGroup" (ngSubmit)="onFormSubmit()" ngNativeValidate>
+        <div class="card-row">
+            <mat-slide-toggle formControlName="showImage">Show Images</mat-slide-toggle>
+            <mat-slide-toggle formControlName="allowEdit">Edit</mat-slide-toggle>
+        </div>
+        <!-- <button mat-raised-button type="submit">Save Settings</button> -->
+    </form>
+    <div>
+        <button mat-raised-button color="primary" [routerLink]="['/webapp/add']">Add new</button>
+        <button mat-button color="accent" [routerLink]="['/webapp/listview']">List view</button>
+    </div>
+</div>
+
+<div class="app-list">
+    <div *ngFor="let webapp of webapps">
+        <app-card [Webapp]="webapp" [ShowImage]="showImage" [AllowEdit]="allowEdit" (cardDeleted)="getAllWebApp()"></app-card>
+    </div>
+</div>

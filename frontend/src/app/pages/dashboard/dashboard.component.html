@@ -1,0 +1,17 @@
+<div class="dashboard-container">
+  <h1 style="font-size: 36px;line-height: 40px;">
+    Welcome back, Alameen
+  </h1>
+  <div class="overview">
+    <mat-card class="dashboard-card" *ngFor="let item of [].constructor(8); let i = index">
+      <mat-card-header>
+        <mat-card-title>{{'Todays Sales '+(i+1)}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <!-- Add your dashboard content here -->
+        <p>Welcome to the admin dashboard!</p>
+      </mat-card-content>
+    </mat-card>
+    
+  </div>
+</div>
